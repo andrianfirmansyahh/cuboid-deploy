@@ -15,6 +15,8 @@ let moveLeft = false;
 let moveRight = false;
 let canJump = false;
 
+let logo;
+
 let prevTime = performance.now();
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
@@ -29,39 +31,87 @@ function init() {
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.set(1,1,1);
     
-    const gui = new dat.GUI();
+    // const gui = new dat.GUI();
+    // const animationsFolder = gui.addFolder('Animations')
+    // animationsFolder.open()
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xffffff );
-    // scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+    scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+
+    // BACKGROUND MOUNTAIN
+
+    const loaderWorld_bk = new THREE.TextureLoader().load('background/gloom_ft.jpg');
+    const loaderWorld_dn = new THREE.TextureLoader().load('background/gloom_bk.jpg');
+    const loaderWorld_ft = new THREE.TextureLoader().load('background/gloom_up.jpg');
+    const loaderWorld_lf = new THREE.TextureLoader().load('background/gloom_dn.jpg');
+    const loaderWorld_rt = new THREE.TextureLoader().load('background/gloom_rt.jpg');
+    const loaderWorld_up = new THREE.TextureLoader().load('background/gloom_lf.jpg');
+
+    const array = [
+        new THREE.MeshBasicMaterial({map: loaderWorld_bk, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_dn, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_ft, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_lf, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_rt, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_up, side: THREE.BackSide}),
+    ];
+
+    const geometry = new THREE.BoxGeometry( 500, 500, 500 );
+    const cube = new THREE.Mesh( geometry, array );
+    cube.position.set(0,0,-100);
+    cube.rotation.y = 3.58;
+    scene.add( cube );
+
 
     const light = new THREE.PointLight( 0xffffff, 1, 100 );
-    light.position.set( 0, 24.4, -28 );
-    light.intensity = 3.6;
+    light.position.set( 0, 19, -9 );
+    light.intensity = 2;
     
     scene.add( light );
 
-    gui.add(light.position, 'x')
-    gui.add(light.position, 'y')
-    gui.add(light.position, 'z')
-    gui.add(light, 'intensity')
+    // gui.add(light.position, 'x')
+    // gui.add(light.position, 'y')
+    // gui.add(light.position, 'z')
+    // gui.add(light, 'intensity')
 
-    const pointLightHelper = new THREE.PointLightHelper(light, 2);
-    scene.add(pointLightHelper)
+    // const pointLightHelper = new THREE.PointLightHelper(light, 2);
+    // scene.add(pointLightHelper)
+
+    const light2 = new THREE.PointLight( 0xffffff, 1, 100 );
+    light2.position.set(1, -22, -93 );
+    light2.intensity = 4;
+    
+    scene.add( light2 );
+
+    // gui.add(light2.position, 'x')
+    // gui.add(light2.position, 'y')
+    // gui.add(light2.position, 'z')
+    // gui.add(light2, 'intensity')
+
+    // const pointLightHelper2 = new THREE.PointLightHelper(light2, 2);
+    // scene.add(pointLightHelper2)
+
+    const light3 = new THREE.PointLight( 0xFFF0B3, 1, 100 );
+    light3.position.set(-0.1, 0.9, -239 );
+    light3.intensity = 2;
+    
+    scene.add( light3 );
+
+    // gui.add(light3.position, 'x')
+    // gui.add(light3.position, 'y')
+    // gui.add(light3.position, 'z')
+    // gui.add(light3, 'intensity')
+
+    // const pointLightHelper3 = new THREE.PointLightHelper(light3, 2);
+    // scene.add(pointLightHelper3)
+
 
 
     controls = new PointerLockControls( camera, document.body );
 
-
-
-    // const geometry = new THREE.BoxGeometry( 50, 50, 50 );
-    // const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-    // const cube = new THREE.Mesh( geometry, material );
-    // scene.add( cube );
-    // gui.add(cube.position, 'y')
-
-    // const blocker = document.getElementById( 'blocker' );
-    // const instructions = document.getElementById( 'instructions' );
+    const blocker = document.getElementById( 'blocker' );
+    const instructions = document.getElementById( 'instructions' );
 
     instructions.addEventListener( 'click', function () {
 
@@ -69,19 +119,19 @@ function init() {
 
     } );
 
-    // controls.addEventListener( 'lock', function () {
+    controls.addEventListener( 'lock', function () {
 
-    //     instructions.style.display = 'none';
-    //     blocker.style.display = 'none';
+        instructions.style.display = 'none';
+        blocker.style.display = 'none';
 
-    // } );
+    } );
 
-    // controls.addEventListener( 'unlock', function () {
+    controls.addEventListener( 'unlock', function () {
 
-    //     blocker.style.display = 'block';
-    //     instructions.style.display = '';
+        blocker.style.display = 'block';
+        instructions.style.display = '';
 
-    // } );
+    } );
 
     scene.add( controls.getObject() );
 
@@ -162,7 +212,7 @@ function init() {
     //OBJECT
     //GLTFLoader
     const loader = new GLTFLoader()
-    loader.load('room1/room1.gltf',function ( gltf ) {
+    loader.load('spacea/spacea.gltf',function ( gltf ) {
             const mars = gltf.scene;
             mars.scale.set(1,1,1)
             mars.position.set(1,-2.75,-30)
@@ -189,11 +239,93 @@ function init() {
         }
     );
 
+    loader.load('spaceb/spaceb.gltf',function ( gltf ) {
+        const mars2 = gltf.scene;
+        mars2.scale.set(1,1,1)
+        mars2.position.set(1,-2.75,-30)
+        scene.add( mars2 );
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+
+loader.load('spacec/spacec.gltf',function ( gltf ) {
+    const mars3 = gltf.scene;
+    mars3.scale.set(1,1,1)
+    mars3.position.set(1,-2.75,-30)
+    scene.add( mars3 );
+
+    gltf.animations; // Array<THREE.AnimationClip>
+    gltf.scene; // THREE.Group
+    gltf.scenes; // Array<THREE.Group>
+    gltf.cameras; // Array<THREE.Camera>
+    gltf.asset; // Object
+},
+
+// called while loading is progressing
+function ( xhr ) {
+
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+},
+// called when loading has errors
+function ( error ) {
+
+    console.log( 'An error happened' );
+
+}
+);
+
+// loader.load('logo/logo.gltf', function ( gltf ){
+//     scene.add( gltf.scene );
+//     logo = gltf.scene.children[0];
+//     logo.position.set(0,0,0)
+//     logo.scale.set(0,0,0);
+
+//     gui.add(logo.position, 'x')
+//     gui.add(logo.position, 'y')
+//     gui.add(logo.position, 'z')
+//     gui.add(logo.scale, 'x')
+//     gui.add(logo.scale, 'y')
+//     gui.add(logo.scale, 'z')
+// }),
+
+// called while loading is progressing
+// function ( xhr ) {
+
+//     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+// },
+// // called when loading has errors
+// function ( error ) {
+
+//     console.log( 'An error happened' );
+
+// }
+
 
 
     //
 
-    renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
@@ -216,6 +348,7 @@ function onWindowResize() {
 function animate() {
 
     requestAnimationFrame( animate );
+    
     const time = performance.now();
 
     if ( controls.isLocked === true ) {
@@ -265,7 +398,6 @@ function animate() {
     }
 
     prevTime = time;
-
     renderer.render( scene, camera );
 
 }
