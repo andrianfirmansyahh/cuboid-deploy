@@ -1,6 +1,7 @@
 import * as THREE from './three.js-master/build/three.module.js'
 import{ GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js'
 import { PointerLockControls } from './three.js-master/examples/jsm/controls/PointerLockControls.js'
+import * as dat from "./three.js-master/examples/jsm/libs/dat.gui.module.js";
 
 let camera, scene, renderer, controls;
 
@@ -27,18 +28,40 @@ function init() {
 
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.set(1,1,1);
+    
+    const gui = new dat.GUI();
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xffffff );
-    scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+    // scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
 
-    const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 2 );
+    const light = new THREE.PointLight( 0xffffff, 1, 100 );
+    light.position.set( 0, 24.4, -28 );
+    light.intensity = 3.6;
+    
     scene.add( light );
+
+    gui.add(light.position, 'x')
+    gui.add(light.position, 'y')
+    gui.add(light.position, 'z')
+    gui.add(light, 'intensity')
+
+    const pointLightHelper = new THREE.PointLightHelper(light, 2);
+    scene.add(pointLightHelper)
+
 
     controls = new PointerLockControls( camera, document.body );
 
-    const blocker = document.getElementById( 'blocker' );
-    const instructions = document.getElementById( 'instructions' );
+
+
+    // const geometry = new THREE.BoxGeometry( 50, 50, 50 );
+    // const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    // const cube = new THREE.Mesh( geometry, material );
+    // scene.add( cube );
+    // gui.add(cube.position, 'y')
+
+    // const blocker = document.getElementById( 'blocker' );
+    // const instructions = document.getElementById( 'instructions' );
 
     instructions.addEventListener( 'click', function () {
 
@@ -46,19 +69,19 @@ function init() {
 
     } );
 
-    controls.addEventListener( 'lock', function () {
+    // controls.addEventListener( 'lock', function () {
 
-        instructions.style.display = 'none';
-        blocker.style.display = 'none';
+    //     instructions.style.display = 'none';
+    //     blocker.style.display = 'none';
 
-    } );
+    // } );
 
-    controls.addEventListener( 'unlock', function () {
+    // controls.addEventListener( 'unlock', function () {
 
-        blocker.style.display = 'block';
-        instructions.style.display = '';
+    //     blocker.style.display = 'block';
+    //     instructions.style.display = '';
 
-    } );
+    // } );
 
     scene.add( controls.getObject() );
 
@@ -129,30 +152,28 @@ function init() {
     raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
     
     // Grid
-    const size = 100;
-    const divisions = 100;
+    // const size = 1000;
+    // const divisions = 1000;
 
-    const gridHelper = new THREE.GridHelper( size, divisions );
-    scene.add( gridHelper );
+    // const gridHelper = new THREE.GridHelper( size, divisions );
+    // scene.add( gridHelper );
 
 
     //OBJECT
     //GLTFLoader
     const loader = new GLTFLoader()
-    loader.load('landscape/scene.gltf',function ( gltf ) {
+    loader.load('room1/room1.gltf',function ( gltf ) {
             const mars = gltf.scene;
-            mars.scale.set(100,100,100)
-            mars.position.x = 30;
-            scene.add( gltf.scene );
+            mars.scale.set(1,1,1)
+            mars.position.set(1,-2.75,-30)
+            scene.add( mars );
 
             gltf.animations; // Array<THREE.AnimationClip>
             gltf.scene; // THREE.Group
             gltf.scenes; // Array<THREE.Group>
             gltf.cameras; // Array<THREE.Camera>
             gltf.asset; // Object
-            obj = gltf.scene;
         },
-
 
         // called while loading is progressing
         function ( xhr ) {
@@ -167,6 +188,8 @@ function init() {
 
         }
     );
+
+
 
     //
 
@@ -235,7 +258,7 @@ function animate() {
             velocity.y = 0;
             controls.getObject().position.y = 1;
 
-            canJump = true;
+            canJump = false;
 
         }
 
