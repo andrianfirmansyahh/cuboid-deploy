@@ -8,8 +8,7 @@ html,
 body
 {
     height: 100vh;
-    font-family: 'roboto';
-    background: rgb(255, 103, 103);
+    background: rgb(104, 104, 104);
 }
 
 .webgl
@@ -18,22 +17,4 @@ body
     top: 0;
     left: 0;
     outline: none;
-}
-
-.container {
-    height: 0.5vh;
-    display: grid;
-    text-align: center;
-}
-
-h1 {
-    font-size: 8rem;
-    text-transform:  uppercase;
-    color: rgb(255, 255, 255);
-    display: grid;
-    text-align: center;
-}
-
-#button1{
-    position: absolute;
 }
