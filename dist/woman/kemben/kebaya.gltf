@@ -1,0 +1,166 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Pattern2D_30527",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.010000000707805157,
+                0.010000000707805157,
+                0.009999999776482582
+            ],
+            "translation" : [
+                0.010833466425538063,
+                -1.3647438287734985,
+                0
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "W. Kemben",
+            "rotation" : [
+                0,
+                0.0036849018651992083,
+                0,
+                -0.9999932050704956
+            ],
+            "scale" : [
+                9.252798080444336,
+                9.252798080444336,
+                9.252798080444336
+            ],
+            "translation" : [
+                -0.08417154848575592,
+                0.051459431648254395,
+                0.001723594032227993
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.009",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.15292620658874512,
+                    0.02121899090707302,
+                    0.018500227481126785,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Pattern2D_30527.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 60989,
+            "max" : [
+                15.407504081726074,
+                9.499910354614258,
+                -113.98479461669922
+            ],
+            "min" : [
+                -15.201592445373535,
+                -15.073799133300781,
+                -162.8133087158203
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 60989,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 60989,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 60989,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 102504,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 731868,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 731868,
+            "byteOffset" : 731868
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 487912,
+            "byteOffset" : 1463736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 487912,
+            "byteOffset" : 1951648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 205008,
+            "byteOffset" : 2439560
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 2644568,
+            "uri" : "kebaya.bin"
+        }
+    ]
+}
