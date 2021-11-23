@@ -1,0 +1,337 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_texture_transform"
+    ],
+    "extensionsRequired" : [
+        "KHR_texture_transform"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Pattern2D_468825.004",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ],
+            "translation" : [
+                0,
+                -1.2140403985977173,
+                0
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "Pattern2D_468828",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ],
+            "translation" : [
+                0,
+                -1.2140403985977173,
+                0
+            ]
+        },
+        {
+            "children" : [
+                0,
+                1
+            ],
+            "name" : "Clothes",
+            "rotation" : [
+                0,
+                0.005722810048609972,
+                0,
+                0.9999836087226868
+            ],
+            "scale" : [
+                5.436295509338379,
+                5.436295986175537,
+                5.436295509338379
+            ],
+            "translation" : [
+                0.014896195381879807,
+                -0.7940837740898132,
+                -0.009281903505325317
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Orange Wall Painting Material.001",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.11601613461971283,
+                    0.02508244477212429,
+                    0.028028450906276703,
+                    1
+                ],
+                "metallicRoughnessTexture" : {
+                    "index" : 1
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Deckchair canvas.001",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "extensions" : {
+                        "KHR_texture_transform" : {
+                            "offset" : [
+                                0,
+                                0.9950000001117587
+                            ],
+                            "scale" : [
+                                0.004999999888241291,
+                                0.004999999888241291
+                            ]
+                        }
+                    },
+                    "index" : 2
+                },
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Pattern2D_468825.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Pattern2D_468828.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 5,
+                        "NORMAL" : 6,
+                        "TEXCOORD_0" : 7,
+                        "TEXCOORD_1" : 8
+                    },
+                    "indices" : 9,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "ParedNaranja_Normal",
+            "uri" : "texture/ParedNaranja_Normal.jpg"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "ParedNaranja_Metallic.jpg-ParedNaranja_Roughness.jpg",
+            "uri" : "texture/ParedNaranja_Metallic_jpg-ParedNaranja_Roughness_jpg.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "TexturesCom_Fabric_DishCloth_1K_albedo.tif",
+            "uri" : "texture/TexturesCom_Fabric_DishCloth_1K_albedo_tif.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 182144,
+            "max" : [
+                58.103389739990234,
+                9.147794723510742,
+                -109.74402618408203
+            ],
+            "min" : [
+                -58.114261627197266,
+                -17.361719131469727,
+                -171.36073303222656
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 182144,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 182144,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 182144,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5125,
+            "count" : 366192,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 11762,
+            "max" : [
+                37.98767852783203,
+                9.612224578857422,
+                -103.6664047241211
+            ],
+            "min" : [
+                -38.365806579589844,
+                -17.987442016601562,
+                -168.0330047607422
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 11762,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 11762,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 11762,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5123,
+            "count" : 61668,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2185728,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2185728,
+            "byteOffset" : 2185728
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1457152,
+            "byteOffset" : 4371456
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1457152,
+            "byteOffset" : 5828608
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1464768,
+            "byteOffset" : 7285760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 141144,
+            "byteOffset" : 8750528
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 141144,
+            "byteOffset" : 8891672
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 94096,
+            "byteOffset" : 9032816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 94096,
+            "byteOffset" : 9126912
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 123336,
+            "byteOffset" : 9221008
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 9344344,
+            "uri" : "clothes.bin"
+        }
+    ]
+}

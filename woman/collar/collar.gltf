@@ -1,0 +1,205 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Pattern2D_114472",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.009999998845160007,
+                0.009999998845160007,
+                0.009999998845160007
+            ],
+            "translation" : [
+                0.01083356887102127,
+                -1.364743709564209,
+                0
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "W. Collar",
+            "rotation" : [
+                0,
+                0.004040142986923456,
+                0,
+                -0.9999918341636658
+            ],
+            "scale" : [
+                17.400861740112305,
+                17.400861740112305,
+                17.400861740112305
+            ],
+            "translation" : [
+                -0.25258272886276245,
+                -3.728421211242676,
+                0.5052154064178467
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Orange Wall Painting Material.002",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Pattern2D_114472.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "ParedNaranja_Normal",
+            "uri" : "texture/ParedNaranja_Normal.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "ParedNaranja_BaseColor",
+            "uri" : "texture/ParedNaranja_BaseColor.jpg"
+        },
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "ParedNaranja_Metallic.jpg-ParedNaranja_Roughness.jpg",
+            "uri" : "texture/ParedNaranja_Metallic_jpg-ParedNaranja_Roughness_jpg.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 36953,
+            "max" : [
+                10.155292510986328,
+                6.064352989196777,
+                -147.17323303222656
+            ],
+            "min" : [
+                -10.654075622558594,
+                -13.576008796691895,
+                -168.5958709716797
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 36953,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 36953,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 36953,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 150336,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 443436,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 443436,
+            "byteOffset" : 443436
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 295624,
+            "byteOffset" : 886872
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 295624,
+            "byteOffset" : 1182496
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 300672,
+            "byteOffset" : 1478120
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1778792,
+            "uri" : "collar.bin"
+        }
+    ]
+}
