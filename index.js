@@ -923,8 +923,8 @@ function animate() {
 
         const delta = ( time - prevTime ) / 1000;
 
-        velocity.x -= velocity.x * 10.0 * delta;
-        velocity.z -= velocity.z * 10.0 * delta;
+        velocity.x -= velocity.x * 55.0 * delta;
+        velocity.z -= velocity.z * 55.0 * delta;
 
         velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
 
