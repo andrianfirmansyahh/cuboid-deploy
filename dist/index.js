@@ -35,9 +35,9 @@ function init() {
     scene.background = new THREE.Color( 0xffffff );
     // scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
 
-    // const gui = new dat.GUI();
-    // const animationsFolder = gui.addFolder('Animations')
-    // animationsFolder.open()
+    const gui = new dat.GUI();
+    const animationsFolder = gui.addFolder('Animations')
+    animationsFolder.open()
 
     // BACKGROUND MOUNTAIN
 
@@ -255,7 +255,7 @@ function init() {
     
     //DIGITAL SPACE
     // Phase1
-    loader.load('phase1/phase1.gltf',function ( gltf ) {
+    loader.load('phasesatu/phasesatu.gltf',function ( gltf ) {
             const phase1 = gltf.scene;
             phase1.scale.set(1,1,1)
             phase1.position.set(0.9,-2,-26)
@@ -882,6 +882,222 @@ function ( error ) {
     }
 );
 
+    //PLANT
+    //Plant1
+    loader.load('plant1/scene.gltf',function ( gltf ) {
+        const plant1 = gltf.scene;
+        plant1.scale.set(.03, .03, .03)
+        plant1.position.set(13.7, -5.67, -28)
+        plant1.rotation.y = 4.1;
+        scene.add( plant1 );
+        // gui.add(plant1.position, 'x')
+        // gui.add(plant1.position, 'y')
+        // gui.add(plant1.position, 'z')
+        // gui.add(plant1.scale, 'x')
+        // gui.add(plant1.scale, 'y')
+        // gui.add(plant1.scale, 'z')
+        // gui.add(plant1.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //PlantTop1
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant1 = gltf.scene;
+        plant1.scale.set(.3, .3, .3)
+        plant1.position.set(12, 5.7, -11)
+        plant1.rotation.y = 9.3;
+        scene.add( plant1 );
+        // gui.add(plant1.position, 'x')
+        // gui.add(plant1.position, 'y')
+        // gui.add(plant1.position, 'z')
+        // gui.add(plant1.scale, 'x')
+        // gui.add(plant1.scale, 'y')
+        // gui.add(plant1.scale, 'z')
+        // gui.add(plant1.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //PlantTop2
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant2 = gltf.scene;
+        plant2.scale.set(.3, .3, .3)
+        plant2.position.set(12, 5.8, -18)
+        plant2.rotation.y = 6.2;
+        scene.add( plant2 );
+        // gui.add(plant2.position, 'x')
+        // gui.add(plant2.position, 'y')
+        // gui.add(plant2.position, 'z')
+        // gui.add(plant2.scale, 'x')
+        // gui.add(plant2.scale, 'y')
+        // gui.add(plant2.scale, 'z')
+        // gui.add(plant2.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //PlantTop3
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant3 = gltf.scene;
+        plant3.scale.set(.3, .3, .3)
+        plant3.position.set(-11, 6.9, -19)
+        plant3.rotation.y = 6.5;
+        scene.add( plant3 );
+        // gui.add(plant3.position, 'x')
+        // gui.add(plant3.position, 'y')
+        // gui.add(plant3.position, 'z')
+        // gui.add(plant3.scale, 'x')
+        // gui.add(plant3.scale, 'y')
+        // gui.add(plant3.scale, 'z')
+        // gui.add(plant3.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //PlantTop4
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant4 = gltf.scene;
+        plant4.scale.set(.3, .3, .3)
+        plant4.position.set(-7, 6.9, -5)
+        plant4.rotation.y = 7;
+        scene.add( plant4 );
+        // gui.add(plant4.position, 'x')
+        // gui.add(plant4.position, 'y')
+        // gui.add(plant4.position, 'z')
+        // gui.add(plant4.scale, 'x')
+        // gui.add(plant4.scale, 'y')
+        // gui.add(plant4.scale, 'z')
+        // gui.add(plant4.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //PlantTop5
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant5 = gltf.scene;
+        plant5.scale.set(.3, .3, .3)
+        plant5.position.set(4.9, 6.1, -2)
+        plant5.rotation.y = 8.7;
+        scene.add( plant5 );
+        // gui.add(plant5.position, 'x')
+        // gui.add(plant5.position, 'y')
+        // gui.add(plant5.position, 'z')
+        // gui.add(plant5.scale, 'x')
+        // gui.add(plant5.scale, 'y')
+        // gui.add(plant5.scale, 'z')
+        // gui.add(plant5.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
 
     //
 
@@ -923,8 +1139,8 @@ function animate() {
 
         const delta = ( time - prevTime ) / 1000;
 
-        velocity.x -= velocity.x * 55.0 * delta;
-        velocity.z -= velocity.z * 55.0 * delta;
+        velocity.x -= velocity.x * 35.0 * delta;
+        velocity.z -= velocity.z * 35.0 * delta;
 
         velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
 
