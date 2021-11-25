@@ -1,9 +1,7 @@
 import * as THREE from './three.js-master/build/three.module.js';
-
 import Stats from './three.js-master/examples/jsm/libs/stats.module.js';
-
 import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js'
-
+import * as dat from "./three.js-master/examples/jsm/libs/dat.gui.module.js"
 import { Octree } from './three.js-master/examples/jsm/math/Octree.js';
 import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
 
@@ -15,18 +13,22 @@ scene.background = new THREE.Color( 0x88ccff );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.rotation.order = 'YXZ';
 
-const ambientlight = new THREE.AmbientLight( 0x6688cc );
+// const gui = new dat.GUI();
+// const animationsFolder = gui.addFolder('Animations')
+// animationsFolder.open()
+
+const ambientlight = new THREE.AmbientLight( 0xffffff,0.6 );
 scene.add( ambientlight );
 
-const fillLight1 = new THREE.DirectionalLight( 0xff9999, 0.5 );
+const fillLight1 = new THREE.DirectionalLight( 0x808000, 0.2 );
 fillLight1.position.set( - 1, 1, 2 );
 scene.add( fillLight1 );
 
-const fillLight2 = new THREE.DirectionalLight( 0x8888ff, 0.2 );
+const fillLight2 = new THREE.DirectionalLight( 808000, 0.1 );
 fillLight2.position.set( 0, - 1, 0 );
 scene.add( fillLight2 );
 
-const directionalLight = new THREE.DirectionalLight( 0xffffaa, 1.2 );
+const directionalLight = new THREE.DirectionalLight( 0x808000, 0.5 );
 directionalLight.position.set( - 5, 25, - 1 );
 directionalLight.castShadow = true;
 directionalLight.shadow.camera.near = 0.01;
@@ -40,6 +42,47 @@ directionalLight.shadow.mapSize.height = 1024;
 directionalLight.shadow.radius = 4;
 directionalLight.shadow.bias = - 0.00006;
 scene.add( directionalLight );
+
+    //Light 1
+    const light1 = new THREE.PointLight( 0xffffff, 1, 100 );
+    light1.position.set( -1, 8.4, -78 );
+    light1.intensity = 1.7;
+    
+    scene.add( light1 );
+
+    // gui.add(light1.position, 'x')
+    // gui.add(light1.position, 'y')
+    // gui.add(light1.position, 'z')
+    // gui.add(light1, 'intensity')
+
+    const pointLightHelper1 = new THREE.PointLightHelper(light1, 2);
+    scene.add(pointLightHelper1)
+
+
+    // BACKGROUND MOUNTAIN
+
+    const loaderWorld_bk = new THREE.TextureLoader().load('background/gloom_ft.jpg');
+    const loaderWorld_dn = new THREE.TextureLoader().load('background/gloom_bk.jpg');
+    const loaderWorld_ft = new THREE.TextureLoader().load('background/gloom_up.jpg');
+    const loaderWorld_lf = new THREE.TextureLoader().load('background/gloom_dn.jpg');
+    const loaderWorld_rt = new THREE.TextureLoader().load('background/gloom_rt.jpg');
+    const loaderWorld_up = new THREE.TextureLoader().load('background/gloom_lf.jpg');
+
+    const array = [
+        new THREE.MeshBasicMaterial({map: loaderWorld_bk, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_dn, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_ft, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_lf, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_rt, side: THREE.BackSide}),
+        new THREE.MeshBasicMaterial({map: loaderWorld_up, side: THREE.BackSide}),
+    ];
+
+    const geometry = new THREE.BoxGeometry( 500, 500, 500 );
+    const cube = new THREE.Mesh( geometry, array );
+    cube.position.set(0,0,-100);
+    cube.rotation.y = 3.58;
+    scene.add( cube );
+
 
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
@@ -378,9 +421,9 @@ function controls( deltaTime ) {
 
 }
 
-const loader = new GLTFLoader().setPath( './phasesatu/' );
+const loader = new GLTFLoader();
 
-loader.load( 'phasesatu.gltf', ( gltf ) => {
+loader.load( 'phasesatu/phasesatu.gltf', ( gltf ) => {
     const phase1 = gltf.scene;
     phase1.scale.set(1,1,1);
     phase1.position.set(0.9,-2,-26)
@@ -407,8 +450,46 @@ loader.load( 'phasesatu.gltf', ( gltf ) => {
 
         }
 
-    } );
+    }
+    
+    );
 
+    
+    animate();
+
+} );
+
+        //Phase1a
+    loader.load('phase1a/phase2 R3.gltf',function ( gltf ) {
+    const phase1a = gltf.scene;
+    phase1a.scale.set(1,1,1)
+    phase1a.position.set(0.9,-2,-26)
+    scene.add( phase1a );
+
+
+
+    worldOctree.fromGraphNode( gltf.scene );
+
+    gltf.scene.traverse( child => {
+
+        if ( child.isMesh ) {
+
+            child.castShadow = true;
+            child.receiveShadow = true;
+
+            if ( child.material.map ) {
+
+                child.material.map.anisotropy = 8;
+
+            }
+
+        }
+
+    }
+    
+    );
+
+    
     animate();
 
 } );
