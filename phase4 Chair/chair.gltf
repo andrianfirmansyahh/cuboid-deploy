@@ -1,0 +1,161 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cube.007",
+            "rotation" : [
+                0.3045308291912079,
+                0,
+                -0.9525024890899658,
+                -3.0373468007383053e-07
+            ],
+            "scale" : [
+                0.5116148591041565,
+                0.3155176043510437,
+                0.3155176341533661
+            ],
+            "translation" : [
+                3.2232284545898438,
+                2.4310989379882812,
+                -102.2019271850586
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Wood texture",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.44999998807907104
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.013",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Kursi Kayu Norm",
+            "uri" : "textures/Kursi%20Kayu%20Norm.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Kursi Kayu  Diff",
+            "uri" : "textures/Kursi%20Kayu%20%20Diff.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 505849,
+            "max" : [
+                1.1861259937286377,
+                1.2880573272705078,
+                0.9949272274971008
+            ],
+            "min" : [
+                -1.0990290641784668,
+                -2.671259880065918,
+                -1.894368290901184
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 505849,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 505849,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 574464,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 6070188,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6070188,
+            "byteOffset" : 6070188
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4046792,
+            "byteOffset" : 12140376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2297856,
+            "byteOffset" : 16187168
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 18485024,
+            "uri" : "chair.bin"
+        }
+    ]
+}
