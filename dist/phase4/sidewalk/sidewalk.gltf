@@ -1,0 +1,167 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Circle.004",
+            "scale" : [
+                8.18149185180664,
+                -6.405270099639893,
+                -6.405270099639893
+            ],
+            "translation" : [
+                -6.236588478088379,
+                -20.716196060180664,
+                -137.02940368652344
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Plaster Texture",
+            "normalTexture" : {
+                "index" : 0,
+                "scale" : 0.5
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Circle.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Side Wall Norm",
+            "uri" : "textures/Side%20Wall%20Norm.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Side Wall",
+            "uri" : "textures/Side%20Wall.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Side Wall Rough",
+            "uri" : "textures/Side%20Wall%20Rough.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 244054,
+            "max" : [
+                3.629868268966675,
+                -3.181185722351074,
+                2.0275070667266846
+            ],
+            "min" : [
+                -2.1053080558776855,
+                -5.8948073387146,
+                -1.4002058506011963
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 244054,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 244054,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 245760,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2928648,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2928648,
+            "byteOffset" : 2928648
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1952432,
+            "byteOffset" : 5857296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 983040,
+            "byteOffset" : 7809728
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 8792768,
+            "uri" : "sidewalk.bin"
+        }
+    ]
+}

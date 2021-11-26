@@ -1,0 +1,155 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Circle.018",
+            "scale" : [
+                26.994245529174805,
+                11.173290252685547,
+                17.63926124572754
+            ],
+            "translation" : [
+                0.02976522035896778,
+                8.705471992492676,
+                -137.02940368652344
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Procedural rough Concrete",
+            "normalTexture" : {
+                "index" : 0
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.718181848526001
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Circle.022",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Wall O Normal",
+            "uri" : "textures/Wall%20O%20Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Wall Diff",
+            "uri" : "textures/Wall%20Diff.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1155324,
+            "max" : [
+                1.2089033126831055,
+                1.0520429611206055,
+                1.080466866493225
+            ],
+            "min" : [
+                -1.2089663743972778,
+                -1.5630154609680176,
+                -2.1309211254119873
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1155324,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1155324,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 1597440,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 13863888,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13863888,
+            "byteOffset" : 13863888
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9242592,
+            "byteOffset" : 27727776
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6389760,
+            "byteOffset" : 36970368
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 43360128,
+            "uri" : "roof.bin"
+        }
+    ]
+}
