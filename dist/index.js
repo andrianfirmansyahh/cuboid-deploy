@@ -1521,6 +1521,7 @@ function animate() {
 
     }
 
+    copywriting.position.y += 5;
     renderer.render( scene, camera );
 
     stats.update();
