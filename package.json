@@ -1,7 +1,6 @@
 {
   "name": "cuboid-deploy",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +11,15 @@
   "dependencies": {
     "dat.gui": "^0.7.7",
     "gh-pages": "^3.2.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrianfirmansyahh/cuboid-deploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andrianfirmansyahh/cuboid-deploy/issues"
+  },
+  "homepage": "https://github.com/andrianfirmansyahh/cuboid-deploy#readme",
+  "description": ""
 }
