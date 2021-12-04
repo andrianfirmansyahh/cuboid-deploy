@@ -1,11 +1,12 @@
 import * as THREE from './three.js-master/build/three.module.js';
+
 import Stats from './three.js-master/examples/jsm/libs/stats.module.js';
-import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js'
-import * as dat from "./three.js-master/examples/jsm/libs/dat.gui.module.js"
+import * as dat from './three.js-master/examples/jsm/libs/dat.gui.module.js'
+
+import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js';
+
 import { Octree } from './three.js-master/examples/jsm/math/Octree.js';
 import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
-import { RectAreaLightHelper } from './three.js-master/examples/jsm/helpers/RectAreaLightHelper.js';
-import { RectAreaLightUniformsLib } from './three.js-master/examples/jsm/lights/RectAreaLightUniformsLib.js';
 
 const clock = new THREE.Clock();
 
