@@ -25,7 +25,7 @@ const GRAVITY = 30;
 const NUM_SPHERES = 100;
 const SPHERE_RADIUS = 0.2;
 
-const STEPS_PER_FRAME = 0.2;
+const STEPS_PER_FRAME = 5;
 
 const sphereGeometry = new THREE.SphereGeometry( SPHERE_RADIUS, 32, 32 );
 const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0x888855, roughness: 0.8, metalness: 0.5 } );
@@ -1520,7 +1520,7 @@ function teleportPlayerIfOob(){
 
 function animate() {
 
-    const deltaTime = Math.min( 0.01, clock.getDelta() ) / STEPS_PER_FRAME;
+    const deltaTime = Math.min( 0.05, clock.getDelta() ) / STEPS_PER_FRAME;
 
     // we look for collisions in substeps to mitigate the risk of
     // an object traversing another too quickly for detection.
