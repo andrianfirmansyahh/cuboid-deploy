@@ -524,748 +524,748 @@ animate();
 
 } );
 
-//Phase2
-loader.load('phase2/phase2.gltf',function ( gltf ) {
-const phase2 = gltf.scene;
-phase2.scale.set(1,1,1)
-phase2.position.set(0,-2,-26)
-scene.add( phase2 );
+// //Phase2
+// loader.load('phase2/phase2.gltf',function ( gltf ) {
+// const phase2 = gltf.scene;
+// phase2.scale.set(1,1,1)
+// phase2.position.set(0,-2,-26)
+// scene.add( phase2 );
 
 
 
-worldOctree.fromGraphNode( gltf.scene );
+// worldOctree.fromGraphNode( gltf.scene );
 
-gltf.scene.traverse( child => {
+// gltf.scene.traverse( child => {
 
-    if ( child.isMesh ) {
+//     if ( child.isMesh ) {
 
-        child.castShadow = true;
-        child.receiveShadow = true;
+//         child.castShadow = true;
+//         child.receiveShadow = true;
 
-    if ( child.material.map ) {
+//     if ( child.material.map ) {
 
-        child.material.map.anisotropy = 8;
+//         child.material.map.anisotropy = 8;
 
-        }
+//         }
 
-    }
+//     }
 
-}
+// }
     
-);
+// );
 
-animate();
+// animate();
 
-} );
+// } );
 
 
-//Phase3
-loader.load('phase3 Floor/floor.gltf',function ( gltf ) {
-    const phase3 = gltf.scene;
-    phase3.scale.set(1,1,1)
-    phase3.position.set(0,-2,-26)
-    scene.add( phase3 );
+// //Phase3
+// loader.load('phase3 Floor/floor.gltf',function ( gltf ) {
+//     const phase3 = gltf.scene;
+//     phase3.scale.set(1,1,1)
+//     phase3.position.set(0,-2,-26)
+//     scene.add( phase3 );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
+//     } );
 
-//Phase3
-loader.load('phase3 Roof/room.gltf',function ( gltf ) {
-    const phase3roof = gltf.scene;
-    phase3roof.scale.set(1,1,1)
-    phase3roof.position.set(0,-2,-26)
-    scene.add( phase3roof );
+// //Phase3
+// loader.load('phase3 Roof/room.gltf',function ( gltf ) {
+//     const phase3roof = gltf.scene;
+//     phase3roof.scale.set(1,1,1)
+//     phase3roof.position.set(0,-2,-26)
+//     scene.add( phase3roof );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
+//     } );
 
-//Phase4_Building
-loader.load('phase4/building/building.gltf',function ( gltf ) {
-    const Phase4_Building = gltf.scene;
-    Phase4_Building.scale.set(1,1,1)
-    Phase4_Building.position.set(0,-1.65,-26)
-    scene.add( Phase4_Building );
+// //Phase4_Building
+// loader.load('phase4/building/building.gltf',function ( gltf ) {
+//     const Phase4_Building = gltf.scene;
+//     Phase4_Building.scale.set(1,1,1)
+//     Phase4_Building.position.set(0,-1.65,-26)
+//     scene.add( Phase4_Building );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
+//     } );
 
-//Phase4_Ground
-loader.load('phase4/ground/ground.gltf',function ( gltf ) {
-    const Phase4_Ground = gltf.scene;
-    Phase4_Ground.scale.set(1,1,1)
-    Phase4_Ground.position.set(0,-2,-26)
-    scene.add( Phase4_Ground );
+// //Phase4_Ground
+// loader.load('phase4/ground/ground.gltf',function ( gltf ) {
+//     const Phase4_Ground = gltf.scene;
+//     Phase4_Ground.scale.set(1,1,1)
+//     Phase4_Ground.position.set(0,-2,-26)
+//     scene.add( Phase4_Ground );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
+//     } );
 
-//Phase4_Roof
-loader.load('phase4/roof/roof.gltf',function ( gltf ) {
-    const Phase4_Roof = gltf.scene;
-    Phase4_Roof.scale.set(1,1,1)
-    Phase4_Roof.position.set(0,-2,-26)
-    scene.add( Phase4_Roof );
+// //Phase4_Roof
+// loader.load('phase4/roof/roof.gltf',function ( gltf ) {
+//     const Phase4_Roof = gltf.scene;
+//     Phase4_Roof.scale.set(1,1,1)
+//     Phase4_Roof.position.set(0,-2,-26)
+//     scene.add( Phase4_Roof );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
+//     } );
 
-//Phase4_Sidewallr1
-loader.load('phase4/sidewalk/sidewalk.gltf',function ( gltf ) {
-    const Phase4_Sidewallr1 = gltf.scene;
-    Phase4_Sidewallr1.scale.set(1,1,1)
-    Phase4_Sidewallr1.position.set(0,-2,-26)
-    scene.add( Phase4_Sidewallr1 );
+// //Phase4_Sidewallr1
+// loader.load('phase4/sidewalk/sidewalk.gltf',function ( gltf ) {
+//     const Phase4_Sidewallr1 = gltf.scene;
+//     Phase4_Sidewallr1.scale.set(1,1,1)
+//     Phase4_Sidewallr1.position.set(0,-2,-26)
+//     scene.add( Phase4_Sidewallr1 );
     
     
     
-    worldOctree.fromGraphNode( gltf.scene );
+//     worldOctree.fromGraphNode( gltf.scene );
     
-    gltf.scene.traverse( child => {
+//     gltf.scene.traverse( child => {
     
-        if ( child.isMesh ) {
+//         if ( child.isMesh ) {
     
-            child.castShadow = true;
-            child.receiveShadow = true;
+//             child.castShadow = true;
+//             child.receiveShadow = true;
     
-        if ( child.material.map ) {
+//         if ( child.material.map ) {
     
-            child.material.map.anisotropy = 8;
+//             child.material.map.anisotropy = 8;
     
-            }
+//             }
     
-        }
+//         }
     
-    }
+//     }
         
-    );
+//     );
     
-    animate();
+//     animate();
     
-    } );
-
-    //OBJECT
-    //clothes
-    loader.load('men/clothes/clothes.gltf',function ( gltf ) {
-        const clothes = gltf.scene;
-        clothes.scale.set(.23, .23, .23)
-        clothes.position.set(5.7, 0.9, -79.5)
-        clothes.rotation.y = -1.17;
-        scene.add( clothes );
-        // gui.add(clothes.position, 'x')
-        // gui.add(clothes.position, 'y')
-        // gui.add(clothes.position, 'z')
-        // gui.add(clothes.scale, 'x')
-        // gui.add(clothes.scale, 'y')
-        // gui.add(clothes.scale, 'z')
-        // gui.add(clothes.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-loader.load('men/vest/vest.gltf',function ( gltf ) {
-    const vest = gltf.scene;
-    vest.scale.set(.23, .23, .23)
-    vest.position.set(7.3, 2.2, -80)
-    vest.rotation.y = -1.22;
-    scene.add( vest );
-    // gui.add(vest.position, 'x')
-    // gui.add(vest.position, 'y')
-    // gui.add(vest.position, 'z')
-    // gui.add(vest.scale, 'x')
-    // gui.add(vest.scale, 'y')
-    // gui.add(vest.scale, 'z')
-    // gui.add(vest.rotation, 'y')
-
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object
-},
-
-// called while loading is progressing
-function ( xhr ) {
-
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-},
-// called when loading has errors
-function ( error ) {
-
-    console.log( 'An error happened' );
-
-}
-);
-
-    loader.load('men/outer/outer.gltf',function ( gltf ) {
-    const outer = gltf.scene;
-    outer.scale.set(.23, .23, .23)
-    outer.position.set(6.4, 1.3, -81)
-    outer.rotation.y = -1.55;
-    scene.add( outer );
-    // gui.add(outer.position, 'x')
-    // gui.add(outer.position, 'y')
-    // gui.add(outer.position, 'z')
-    // gui.add(outer.scale, 'x')
-    // gui.add(outer.scale, 'y')
-    // gui.add(outer.scale, 'z')
-    // gui.add(outer.rotation, 'y')
-
-    gltf.animations; // Array<THREE.AnimationClip>
-    gltf.scene; // THREE.Group
-    gltf.scenes; // Array<THREE.Group>
-    gltf.cameras; // Array<THREE.Camera>
-    gltf.asset; // Object
-},
-
-// called while loading is progressing
-function ( xhr ) {
-
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-},
-// called when loading has errors
-function ( error ) {
-
-    console.log( 'An error happened' );
-
-}
-);
-
-    //pants
-    loader.load('men/pants/pants.gltf',function ( gltf ) {
-        const pants = gltf.scene;
-        pants.scale.set(.2, .2, .2)
-        pants.position.set(6.9, 1.3, -79)
-        pants.rotation.y = -1.1;
-        scene.add( pants );
-        // gui.add(pants.position, 'x')
-        // gui.add(pants.position, 'y')
-        // gui.add(pants.position, 'z')
-        // gui.add(pants.scale, 'x')
-        // gui.add(pants.scale, 'y')
-        // gui.add(pants.scale, 'z')
-        // gui.add(pants.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //odheng
-    loader.load('men/odheng/odheng.gltf',function ( gltf ) {
-        const odheng = gltf.scene;
-        odheng.scale.set(.25, .25, .25)
-        odheng.position.set(7.3, 2.1, -55)
-        odheng.rotation.y = -1;
-        scene.add( odheng );
-        // gui.add(odheng.position, 'x')
-        // gui.add(odheng.position, 'y')
-        // gui.add(odheng.position, 'z')
-        // gui.add(odheng.scale, 'x')
-        // gui.add(odheng.scale, 'y')
-        // gui.add(odheng.scale, 'z')
-        // gui.add(odheng.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //boots
-    loader.load('men/boots/boots.gltf',function ( gltf ) {
-        const boots = gltf.scene;
-        boots.scale.set(.3, .3, .3)
-        boots.position.set(6.9, 0.6, -56)
-        boots.rotation.y = -1.6;
-        scene.add( boots );
-        // gui.add(boots.position, 'x')
-        // gui.add(boots.position, 'y')
-        // gui.add(boots.position, 'z')
-        // gui.add(boots.scale, 'x')
-        // gui.add(boots.scale, 'y')
-        // gui.add(boots.scale, 'z')
-        // gui.add(boots.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //collar
-    loader.load('woman/collar/collar.gltf',function ( gltf ) {
-        const collar = gltf.scene;
-        collar.scale.set(.3, .3, .3)
-        collar.position.set(-4.8, 2.8, -68)
-        collar.rotation.y = -5.4;
-        scene.add( collar );
-        // gui.add(collar.position, 'x')
-        // gui.add(collar.position, 'y')
-        // gui.add(collar.position, 'z')
-        // gui.add(collar.scale, 'x')
-        // gui.add(collar.scale, 'y')
-        // gui.add(collar.scale, 'z')
-        // gui.add(collar.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //kemben
-    loader.load('woman/kemben/kebaya.gltf',function ( gltf ) {
-        const kemben = gltf.scene;
-        kemben.scale.set(.5, .5, .5)
-        kemben.position.set(-4.3, 1.25, -69)
-        kemben.rotation.y = -5;
-        scene.add( kemben );
-        // gui.add(kemben.position, 'x')
-        // gui.add(kemben.position, 'y')
-        // gui.add(kemben.position, 'z')
-        // gui.add(kemben.scale, 'x')
-        // gui.add(kemben.scale, 'y')
-        // gui.add(kemben.scale, 'z')
-        // gui.add(kemben.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //kebaya
-    loader.load('woman/kebaya/kebaya.gltf',function ( gltf ) {
-        const kebaya = gltf.scene;
-        kebaya.scale.set(.3, .3, .3)
-        kebaya.position.set(-5.2, 2.9, -88)
-        kebaya.rotation.y = -5;
-        scene.add( kebaya );
-        // gui.add(kebaya.position, 'x')
-        // gui.add(kebaya.position, 'y')
-        // gui.add(kebaya.position, 'z')
-        // gui.add(kebaya.scale, 'x')
-        // gui.add(kebaya.scale, 'y')
-        // gui.add(kebaya.scale, 'z')
-        // gui.add(kebaya.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //skirt
-    loader.load('woman/skirt/skirt.gltf',function ( gltf ) {
-        const skirt = gltf.scene;
-        skirt.scale.set(.3, .3, .3)
-        skirt.position.set(-3.5, 1.4, -88)
-        skirt.rotation.y = -5.3;
-        scene.add( skirt );
-        // gui.add(skirt.position, 'x')
-        // gui.add(skirt.position, 'y')
-        // gui.add(skirt.position, 'z')
-        // gui.add(skirt.scale, 'x')
-        // gui.add(skirt.scale, 'y')
-        // gui.add(skirt.scale, 'z')
-        // gui.add(skirt.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //sandal
-    loader.load('woman/sandal/sandal.gltf',function ( gltf ) {
-        const sandal = gltf.scene;
-        sandal.scale.set(.2, .2, .2)
-        sandal.position.set(-4.3, 0.1, -87)
-        sandal.rotation.y = -5.3;
-        scene.add( sandal );
-        // gui.add(sandal.position, 'x')
-        // gui.add(sandal.position, 'y')
-        // gui.add(sandal.position, 'z')
-        // gui.add(sandal.scale, 'x')
-        // gui.add(sandal.scale, 'y')
-        // gui.add(sandal.scale, 'z')
-        // gui.add(sandal.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //fullwoman
-    loader.load('fullwoman/fullwoman.gltf',function ( gltf ) {
-        const fullwoman = gltf.scene;
-        fullwoman.scale.set(.3, .3, .3)
-        fullwoman.position.set(-1.4, 1.4, -96)
-        fullwoman.rotation.y = 0.44;
-        scene.add( fullwoman );
-        // gui.add(fullwoman.position, 'x')
-        // gui.add(fullwoman.position, 'y')
-        // gui.add(fullwoman.position, 'z')
-        // gui.add(fullwoman.scale, 'x')
-        // gui.add(fullwoman.scale, 'y')
-        // gui.add(fullwoman.scale, 'z')
-        // gui.add(fullwoman.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //fullman
-    loader.load('fullman/fullman.gltf',function ( gltf ) {
-        const fullman = gltf.scene;
-        fullman.scale.set(.3, .3, .3)
-        fullman.position.set(3.7, 1.7, -96)
-        fullman.rotation.y = -0.56;
-        scene.add( fullman );
-        // gui.add(fullman.position, 'x')
-        // gui.add(fullman.position, 'y')
-        // gui.add(fullman.position, 'z')
-        // gui.add(fullman.scale, 'x')
-        // gui.add(fullman.scale, 'y')
-        // gui.add(fullman.scale, 'z')
-        // gui.add(fullman.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
-
-    //CUBOID Element
-    //text
-    loader.load('Cuboid/cuboid.gltf',function ( gltf ) {
-        const cuboid = gltf.scene;
-        cuboid.scale.set(.5, .5, .5)
-        cuboid.position.set(6.4, 0.1, -80)
-        cuboid.rotation.y = 1;
-        scene.add( cuboid );
-        // gui.add(cuboid.position, 'x')
-        // gui.add(cuboid.position, 'y')
-        // gui.add(cuboid.position, 'z')
-        // gui.add(cuboid.scale, 'x')
-        // gui.add(cuboid.scale, 'y')
-        // gui.add(cuboid.scale, 'z')
-        // gui.add(cuboid.rotation, 'y')
-
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
-
-    // called while loading is progressing
-    function ( xhr ) {
-
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-    },
-    // called when loading has errors
-    function ( error ) {
-
-        console.log( 'An error happened' );
-
-    }
-);
+//     } );
+
+//     //OBJECT
+//     //clothes
+//     loader.load('men/clothes/clothes.gltf',function ( gltf ) {
+//         const clothes = gltf.scene;
+//         clothes.scale.set(.23, .23, .23)
+//         clothes.position.set(5.7, 0.9, -79.5)
+//         clothes.rotation.y = -1.17;
+//         scene.add( clothes );
+//         // gui.add(clothes.position, 'x')
+//         // gui.add(clothes.position, 'y')
+//         // gui.add(clothes.position, 'z')
+//         // gui.add(clothes.scale, 'x')
+//         // gui.add(clothes.scale, 'y')
+//         // gui.add(clothes.scale, 'z')
+//         // gui.add(clothes.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+// loader.load('men/vest/vest.gltf',function ( gltf ) {
+//     const vest = gltf.scene;
+//     vest.scale.set(.23, .23, .23)
+//     vest.position.set(7.3, 2.2, -80)
+//     vest.rotation.y = -1.22;
+//     scene.add( vest );
+//     // gui.add(vest.position, 'x')
+//     // gui.add(vest.position, 'y')
+//     // gui.add(vest.position, 'z')
+//     // gui.add(vest.scale, 'x')
+//     // gui.add(vest.scale, 'y')
+//     // gui.add(vest.scale, 'z')
+//     // gui.add(vest.rotation, 'y')
+
+//     gltf.animations; // Array<THREE.AnimationClip>
+//     gltf.scene; // THREE.Group
+//     gltf.scenes; // Array<THREE.Group>
+//     gltf.cameras; // Array<THREE.Camera>
+//     gltf.asset; // Object
+// },
+
+// // called while loading is progressing
+// function ( xhr ) {
+
+//     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+// },
+// // called when loading has errors
+// function ( error ) {
+
+//     console.log( 'An error happened' );
+
+// }
+// );
+
+//     loader.load('men/outer/outer.gltf',function ( gltf ) {
+//     const outer = gltf.scene;
+//     outer.scale.set(.23, .23, .23)
+//     outer.position.set(6.4, 1.3, -81)
+//     outer.rotation.y = -1.55;
+//     scene.add( outer );
+//     // gui.add(outer.position, 'x')
+//     // gui.add(outer.position, 'y')
+//     // gui.add(outer.position, 'z')
+//     // gui.add(outer.scale, 'x')
+//     // gui.add(outer.scale, 'y')
+//     // gui.add(outer.scale, 'z')
+//     // gui.add(outer.rotation, 'y')
+
+//     gltf.animations; // Array<THREE.AnimationClip>
+//     gltf.scene; // THREE.Group
+//     gltf.scenes; // Array<THREE.Group>
+//     gltf.cameras; // Array<THREE.Camera>
+//     gltf.asset; // Object
+// },
+
+// // called while loading is progressing
+// function ( xhr ) {
+
+//     console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+// },
+// // called when loading has errors
+// function ( error ) {
+
+//     console.log( 'An error happened' );
+
+// }
+// );
+
+//     //pants
+//     loader.load('men/pants/pants.gltf',function ( gltf ) {
+//         const pants = gltf.scene;
+//         pants.scale.set(.2, .2, .2)
+//         pants.position.set(6.9, 1.3, -79)
+//         pants.rotation.y = -1.1;
+//         scene.add( pants );
+//         // gui.add(pants.position, 'x')
+//         // gui.add(pants.position, 'y')
+//         // gui.add(pants.position, 'z')
+//         // gui.add(pants.scale, 'x')
+//         // gui.add(pants.scale, 'y')
+//         // gui.add(pants.scale, 'z')
+//         // gui.add(pants.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //odheng
+//     loader.load('men/odheng/odheng.gltf',function ( gltf ) {
+//         const odheng = gltf.scene;
+//         odheng.scale.set(.25, .25, .25)
+//         odheng.position.set(7.3, 2.1, -55)
+//         odheng.rotation.y = -1;
+//         scene.add( odheng );
+//         // gui.add(odheng.position, 'x')
+//         // gui.add(odheng.position, 'y')
+//         // gui.add(odheng.position, 'z')
+//         // gui.add(odheng.scale, 'x')
+//         // gui.add(odheng.scale, 'y')
+//         // gui.add(odheng.scale, 'z')
+//         // gui.add(odheng.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //boots
+//     loader.load('men/boots/boots.gltf',function ( gltf ) {
+//         const boots = gltf.scene;
+//         boots.scale.set(.3, .3, .3)
+//         boots.position.set(6.9, 0.6, -56)
+//         boots.rotation.y = -1.6;
+//         scene.add( boots );
+//         // gui.add(boots.position, 'x')
+//         // gui.add(boots.position, 'y')
+//         // gui.add(boots.position, 'z')
+//         // gui.add(boots.scale, 'x')
+//         // gui.add(boots.scale, 'y')
+//         // gui.add(boots.scale, 'z')
+//         // gui.add(boots.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //collar
+//     loader.load('woman/collar/collar.gltf',function ( gltf ) {
+//         const collar = gltf.scene;
+//         collar.scale.set(.3, .3, .3)
+//         collar.position.set(-4.8, 2.8, -68)
+//         collar.rotation.y = -5.4;
+//         scene.add( collar );
+//         // gui.add(collar.position, 'x')
+//         // gui.add(collar.position, 'y')
+//         // gui.add(collar.position, 'z')
+//         // gui.add(collar.scale, 'x')
+//         // gui.add(collar.scale, 'y')
+//         // gui.add(collar.scale, 'z')
+//         // gui.add(collar.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //kemben
+//     loader.load('woman/kemben/kebaya.gltf',function ( gltf ) {
+//         const kemben = gltf.scene;
+//         kemben.scale.set(.5, .5, .5)
+//         kemben.position.set(-4.3, 1.25, -69)
+//         kemben.rotation.y = -5;
+//         scene.add( kemben );
+//         // gui.add(kemben.position, 'x')
+//         // gui.add(kemben.position, 'y')
+//         // gui.add(kemben.position, 'z')
+//         // gui.add(kemben.scale, 'x')
+//         // gui.add(kemben.scale, 'y')
+//         // gui.add(kemben.scale, 'z')
+//         // gui.add(kemben.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //kebaya
+//     loader.load('woman/kebaya/kebaya.gltf',function ( gltf ) {
+//         const kebaya = gltf.scene;
+//         kebaya.scale.set(.3, .3, .3)
+//         kebaya.position.set(-5.2, 2.9, -88)
+//         kebaya.rotation.y = -5;
+//         scene.add( kebaya );
+//         // gui.add(kebaya.position, 'x')
+//         // gui.add(kebaya.position, 'y')
+//         // gui.add(kebaya.position, 'z')
+//         // gui.add(kebaya.scale, 'x')
+//         // gui.add(kebaya.scale, 'y')
+//         // gui.add(kebaya.scale, 'z')
+//         // gui.add(kebaya.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //skirt
+//     loader.load('woman/skirt/skirt.gltf',function ( gltf ) {
+//         const skirt = gltf.scene;
+//         skirt.scale.set(.3, .3, .3)
+//         skirt.position.set(-3.5, 1.4, -88)
+//         skirt.rotation.y = -5.3;
+//         scene.add( skirt );
+//         // gui.add(skirt.position, 'x')
+//         // gui.add(skirt.position, 'y')
+//         // gui.add(skirt.position, 'z')
+//         // gui.add(skirt.scale, 'x')
+//         // gui.add(skirt.scale, 'y')
+//         // gui.add(skirt.scale, 'z')
+//         // gui.add(skirt.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //sandal
+//     loader.load('woman/sandal/sandal.gltf',function ( gltf ) {
+//         const sandal = gltf.scene;
+//         sandal.scale.set(.2, .2, .2)
+//         sandal.position.set(-4.3, 0.1, -87)
+//         sandal.rotation.y = -5.3;
+//         scene.add( sandal );
+//         // gui.add(sandal.position, 'x')
+//         // gui.add(sandal.position, 'y')
+//         // gui.add(sandal.position, 'z')
+//         // gui.add(sandal.scale, 'x')
+//         // gui.add(sandal.scale, 'y')
+//         // gui.add(sandal.scale, 'z')
+//         // gui.add(sandal.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //fullwoman
+//     loader.load('fullwoman/fullwoman.gltf',function ( gltf ) {
+//         const fullwoman = gltf.scene;
+//         fullwoman.scale.set(.3, .3, .3)
+//         fullwoman.position.set(-1.4, 1.4, -96)
+//         fullwoman.rotation.y = 0.44;
+//         scene.add( fullwoman );
+//         // gui.add(fullwoman.position, 'x')
+//         // gui.add(fullwoman.position, 'y')
+//         // gui.add(fullwoman.position, 'z')
+//         // gui.add(fullwoman.scale, 'x')
+//         // gui.add(fullwoman.scale, 'y')
+//         // gui.add(fullwoman.scale, 'z')
+//         // gui.add(fullwoman.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //fullman
+//     loader.load('fullman/fullman.gltf',function ( gltf ) {
+//         const fullman = gltf.scene;
+//         fullman.scale.set(.3, .3, .3)
+//         fullman.position.set(3.7, 1.7, -96)
+//         fullman.rotation.y = -0.56;
+//         scene.add( fullman );
+//         // gui.add(fullman.position, 'x')
+//         // gui.add(fullman.position, 'y')
+//         // gui.add(fullman.position, 'z')
+//         // gui.add(fullman.scale, 'x')
+//         // gui.add(fullman.scale, 'y')
+//         // gui.add(fullman.scale, 'z')
+//         // gui.add(fullman.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
+
+//     //CUBOID Element
+//     //text
+//     loader.load('Cuboid/cuboid.gltf',function ( gltf ) {
+//         const cuboid = gltf.scene;
+//         cuboid.scale.set(.5, .5, .5)
+//         cuboid.position.set(6.4, 0.1, -80)
+//         cuboid.rotation.y = 1;
+//         scene.add( cuboid );
+//         // gui.add(cuboid.position, 'x')
+//         // gui.add(cuboid.position, 'y')
+//         // gui.add(cuboid.position, 'z')
+//         // gui.add(cuboid.scale, 'x')
+//         // gui.add(cuboid.scale, 'y')
+//         // gui.add(cuboid.scale, 'z')
+//         // gui.add(cuboid.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
 
 function onWindowResize() {
 
