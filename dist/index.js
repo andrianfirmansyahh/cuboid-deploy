@@ -44,6 +44,16 @@ for ( let i = 0; i < NUM_SPHERES; i ++ ) {
 
 }
 
+const loadingManager = new THREE.LoadingManager( () => {
+	
+    const loadingScreen = document.getElementById( 'loading-screen' );
+    loadingScreen.classList.add( 'fade-out' );
+    
+    // // optional: remove loader from DOM via event listener
+    // loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+    
+} );
+
 // //RecLights
 // RectAreaLightUniformsLib.init();
 // const rectLight1 = new THREE.RectAreaLight( 0xff0000, 5, 4, 10 );
@@ -117,10 +127,6 @@ scene.add( light2 );
 
 const pointLightHelper2 = new THREE.PointLightHelper(light2, 2);
 scene.add(pointLightHelper2)
-
-
-
-
 
 // BACKGROUND MOUNTAIN
 
@@ -460,7 +466,7 @@ function controls( deltaTime ) {
 
 
 // DIGITAL SPACES
-const loader = new GLTFLoader();
+const loader = new GLTFLoader(loadingManager);
 
 // PHASE 1
 loader.load( 'phasesatu/phasesatu.gltf', ( gltf ) => {
@@ -1527,4 +1533,10 @@ function animate() {
 
     requestAnimationFrame( animate );
 
+}
+
+function onTransitionEnd( event ) {
+
+	event.target.remove();
+	
 }
