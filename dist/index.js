@@ -49,8 +49,8 @@ const loadingManager = new THREE.LoadingManager( () => {
     const loadingScreen = document.getElementById( 'loading-screen' );
     loadingScreen.classList.add( 'fade-out' );
     
-    // // optional: remove loader from DOM via event listener
-    // loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
+    // optional: remove loader from DOM via event listener
+    loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
     
 } );
 
@@ -223,248 +223,6 @@ document.body.addEventListener( 'mousemove', ( event ) => {
 
 window.addEventListener( 'resize', onWindowResize );
 
-function onWindowResize() {
-
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-}
-
-function throwBall() {
-
-    const sphere = spheres[ sphereIdx ];
-
-    camera.getWorldDirection( playerDirection );
-
-    sphere.collider.center.copy( playerCollider.end ).addScaledVector( playerDirection, playerCollider.radius * 1.5 );
-
-    // throw the ball with more force if we hold the button longer, and if we move forward
-
-    const impulse = 15 + 30 * ( 1 - Math.exp( ( mouseTime - performance.now() ) * 0.001 ) );
-
-    sphere.velocity.copy( playerDirection ).multiplyScalar( impulse );
-    sphere.velocity.addScaledVector( playerVelocity, 2 );
-
-    sphereIdx = ( sphereIdx + 1 ) % spheres.length;
-
-}
-
-function playerCollisions() {
-
-    const result = worldOctree.capsuleIntersect( playerCollider );
-
-    playerOnFloor = false;
-
-    if ( result ) {
-
-        playerOnFloor = result.normal.y > 0;
-
-        if ( ! playerOnFloor ) {
-
-            playerVelocity.addScaledVector( result.normal, - result.normal.dot( playerVelocity ) );
-
-        }
-
-        playerCollider.translate( result.normal.multiplyScalar( result.depth ) );
-
-    }
-
-}
-
-function updatePlayer( deltaTime ) {
-
-    let damping = Math.exp( - 4 * deltaTime ) - 1;
-
-    if ( ! playerOnFloor ) {
-
-        playerVelocity.y -= GRAVITY * deltaTime;
-
-        // small air resistance
-        damping *= 0.1;
-
-    }
-
-    playerVelocity.addScaledVector( playerVelocity, damping );
-
-    const deltaPosition = playerVelocity.clone().multiplyScalar( deltaTime );
-    playerCollider.translate( deltaPosition );
-
-    playerCollisions();
-
-    camera.position.copy( playerCollider.end );
-
-}
-
-function playerSphereCollision( sphere ) {
-
-    const center = vector1.addVectors( playerCollider.start, playerCollider.end ).multiplyScalar( 0.5 );
-
-    const sphere_center = sphere.collider.center;
-
-    const r = playerCollider.radius + sphere.collider.radius;
-    const r2 = r * r;
-
-    // approximation: player = 3 spheres
-
-    for ( const point of [ playerCollider.start, playerCollider.end, center ] ) {
-
-        const d2 = point.distanceToSquared( sphere_center );
-
-        if ( d2 < r2 ) {
-
-            const normal = vector1.subVectors( point, sphere_center ).normalize();
-            const v1 = vector2.copy( normal ).multiplyScalar( normal.dot( playerVelocity ) );
-            const v2 = vector3.copy( normal ).multiplyScalar( normal.dot( sphere.velocity ) );
-
-            playerVelocity.add( v2 ).sub( v1 );
-            sphere.velocity.add( v1 ).sub( v2 );
-
-            const d = ( r - Math.sqrt( d2 ) ) / 2;
-            sphere_center.addScaledVector( normal, - d );
-
-        }
-
-    }
-
-}
-
-function spheresCollisions() {
-
-    for ( let i = 0, length = spheres.length; i < length; i ++ ) {
-
-        const s1 = spheres[ i ];
-
-        for ( let j = i + 1; j < length; j ++ ) {
-
-            const s2 = spheres[ j ];
-
-            const d2 = s1.collider.center.distanceToSquared( s2.collider.center );
-            const r = s1.collider.radius + s2.collider.radius;
-            const r2 = r * r;
-
-            if ( d2 < r2 ) {
-
-                const normal = vector1.subVectors( s1.collider.center, s2.collider.center ).normalize();
-                const v1 = vector2.copy( normal ).multiplyScalar( normal.dot( s1.velocity ) );
-                const v2 = vector3.copy( normal ).multiplyScalar( normal.dot( s2.velocity ) );
-
-                s1.velocity.add( v2 ).sub( v1 );
-                s2.velocity.add( v1 ).sub( v2 );
-
-                const d = ( r - Math.sqrt( d2 ) ) / 2;
-
-                s1.collider.center.addScaledVector( normal, d );
-                s2.collider.center.addScaledVector( normal, - d );
-
-            }
-
-        }
-
-    }
-
-}
-
-function updateSpheres( deltaTime ) {
-
-    spheres.forEach( sphere => {
-
-        sphere.collider.center.addScaledVector( sphere.velocity, deltaTime );
-
-        const result = worldOctree.sphereIntersect( sphere.collider );
-
-        if ( result ) {
-
-            sphere.velocity.addScaledVector( result.normal, - result.normal.dot( sphere.velocity ) * 1.5 );
-            sphere.collider.center.add( result.normal.multiplyScalar( result.depth ) );
-
-        } else {
-
-            sphere.velocity.y -= GRAVITY * deltaTime;
-
-        }
-
-        const damping = Math.exp( - 1.5 * deltaTime ) - 1;
-        sphere.velocity.addScaledVector( sphere.velocity, damping );
-
-        playerSphereCollision( sphere );
-
-    } );
-
-    spheresCollisions();
-
-    for ( const sphere of spheres ) {
-
-        sphere.mesh.position.copy( sphere.collider.center );
-
-    }
-
-}
-
-function getForwardVector() {
-
-    camera.getWorldDirection( playerDirection );
-    playerDirection.y = 0;
-    playerDirection.normalize();
-
-    return playerDirection;
-
-}
-
-function getSideVector() {
-
-    camera.getWorldDirection( playerDirection );
-    playerDirection.y = 0;
-    playerDirection.normalize();
-    playerDirection.cross( camera.up );
-
-    return playerDirection;
-
-}
-
-function controls( deltaTime ) {
-
-    // gives a bit of air control
-    const speedDelta = deltaTime * ( playerOnFloor ? 25 : 8 );
-
-    if ( keyStates[ 'KeyW' ] ) {
-
-        playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
-
-    }
-
-    if ( keyStates[ 'KeyS' ] ) {
-
-        playerVelocity.add( getForwardVector().multiplyScalar( - speedDelta ) );
-
-    }
-
-    if ( keyStates[ 'KeyA' ] ) {
-
-        playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
-
-    }
-
-    if ( keyStates[ 'KeyD' ] ) {
-
-        playerVelocity.add( getSideVector().multiplyScalar( speedDelta ) );
-
-    }
-
-    if ( playerOnFloor ) {
-
-        if ( keyStates[ 'Space' ] ) {
-
-            playerVelocity.y = 15;
-
-        }
-
-    }
-
-}
-
-
 // DIGITAL SPACES
 const loader = new GLTFLoader(loadingManager);
 
@@ -501,6 +259,267 @@ gltf.scene.traverse( child => {
 );
 
 animate();
+
+} );
+
+    //PLANT
+    //Plant1
+    loader.load('plant1/scene.gltf',function ( gltf ) {
+        const plant1 = gltf.scene;
+        plant1.scale.set(.03, .03, .03)
+        plant1.position.set(13.7, -5.67, -28)
+        plant1.rotation.y = 4.1;
+        scene.add( plant1 );
+        // gui.add(plant1.position, 'x')
+        // gui.add(plant1.position, 'y')
+        // gui.add(plant1.position, 'z')
+        // gui.add(plant1.scale, 'x')
+        // gui.add(plant1.scale, 'y')
+        // gui.add(plant1.scale, 'z')
+        // gui.add(plant1.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+
+//PLANTS
+//Plant1
+loader.load('plant3/scene.gltf',function ( gltf ) {
+    const plant1 = gltf.scene;
+    plant1.scale.set(0.3,0.3,0.3)
+    plant1.position.set(11,6.9,-19)
+    plant1.rotation.y = -0.2
+    scene.add( plant1 );
+    // gui.add(plant1.position, 'x')
+    // gui.add(plant1.position, 'y')
+    // gui.add(plant1.position, 'z')
+    // gui.add(plant1.scale, 'x')
+    // gui.add(plant1.scale, 'y')
+    // gui.add(plant1.scale, 'z')
+    // gui.add(plant1.rotation, 'y')
+    
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    });
+    
+    } );
+
+    loader.load('plant3/scene.gltf',function ( gltf ) {
+        const plant1 = gltf.scene;
+        plant1.scale.set(0.3,0.3,0.3)
+        plant1.position.set(6,6.2,-3)
+        plant1.rotation.y = -0.68
+        scene.add( plant1 );
+        // gui.add(plant1.position, 'x')
+        // gui.add(plant1.position, 'y')
+        // gui.add(plant1.position, 'z')
+        // gui.add(plant1.scale, 'x')
+        // gui.add(plant1.scale, 'y')
+        // gui.add(plant1.scale, 'z')
+        // gui.add(plant1.rotation, 'y')
+        
+        worldOctree.fromGraphNode( gltf.scene );
+        
+        gltf.scene.traverse( child => {
+        
+            if ( child.isMesh ) {
+        
+                child.castShadow = true;
+                child.receiveShadow = true;
+        
+            if ( child.material.map ) {
+        
+                child.material.map.anisotropy = 8;
+        
+                }
+        
+            }
+        
+        });
+
+animate();  
+
+} );
+
+loader.load('plant3/scene.gltf',function ( gltf ) {
+    const plant2 = gltf.scene;
+    plant2.scale.set(0.3,0.3,0.3)
+    plant2.position.set(6,6.2,-3)
+    plant2.rotation.y = -0.68
+    scene.add( plant2 );
+    // gui.add(plant2.position, 'x')
+    // gui.add(plant2.position, 'y')
+    // gui.add(plant2.position, 'z')
+    // gui.add(plant2.scale, 'x')
+    // gui.add(plant2.scale, 'y')
+    // gui.add(plant2.scale, 'z')
+    // gui.add(plant2.rotation, 'y')
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    });
+
+animate();  
+
+} );
+
+loader.load('plant3/scene.gltf',function ( gltf ) {
+    const plant3 = gltf.scene;
+    plant3.scale.set(0.3,0.3,0.3)
+    plant3.position.set(-9.5,6.3,-13.5)
+    plant3.rotation.y = -2.97
+    scene.add( plant3 );
+    // gui.add(plant3.position, 'x')
+    // gui.add(plant3.position, 'y')
+    // gui.add(plant3.position, 'z')
+    // gui.add(plant3.scale, 'x')
+    // gui.add(plant3.scale, 'y')
+    // gui.add(plant3.scale, 'z')
+    // gui.add(plant3.rotation, 'y')
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    });
+
+animate();  
+
+} );
+
+loader.load('plant3/scene.gltf',function ( gltf ) {
+    const plant3 = gltf.scene;
+    plant3.scale.set(0.3,0.3,0.3)
+    plant3.position.set(-7,6.3,-3)
+    plant3.rotation.y = -30.5
+    scene.add( plant3 );
+    // gui.add(plant3.position, 'x')
+    // gui.add(plant3.position, 'y')
+    // gui.add(plant3.position, 'z')
+    // gui.add(plant3.scale, 'x')
+    // gui.add(plant3.scale, 'y')
+    // gui.add(plant3.scale, 'z')
+    // gui.add(plant3.rotation, 'y')
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    });
+
+animate();  
+
+} );
+
+loader.load('plant3/scene.gltf',function ( gltf ) {
+    const plant4 = gltf.scene;
+    plant4.scale.set(0.3,0.3,0.3)
+    plant4.position.set(-7,6.3,-3)
+    plant4.rotation.y = -30.5
+    scene.add( plant4 );
+    // gui.add(plant4.position, 'x')
+    // gui.add(plant4.position, 'y')
+    // gui.add(plant4.position, 'z')
+    // gui.add(plant4.scale, 'x')
+    // gui.add(plant4.scale, 'y')
+    // gui.add(plant4.scale, 'z')
+    // gui.add(plant4.rotation, 'y')
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    });
+
+animate();  
 
 } );
 
@@ -1247,268 +1266,246 @@ function ( error ) {
     }
 );
 
-    //PLANT
-    //Plant1
-    loader.load('plant1/scene.gltf',function ( gltf ) {
-        const plant1 = gltf.scene;
-        plant1.scale.set(.03, .03, .03)
-        plant1.position.set(13.7, -5.67, -28)
-        plant1.rotation.y = 4.1;
-        scene.add( plant1 );
-        // gui.add(plant1.position, 'x')
-        // gui.add(plant1.position, 'y')
-        // gui.add(plant1.position, 'z')
-        // gui.add(plant1.scale, 'x')
-        // gui.add(plant1.scale, 'y')
-        // gui.add(plant1.scale, 'z')
-        // gui.add(plant1.rotation, 'y')
+function onWindowResize() {
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 
-    // called while loading is progressing
-    function ( xhr ) {
+    renderer.setSize( window.innerWidth, window.innerHeight );
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+}
 
-    },
-    // called when loading has errors
-    function ( error ) {
+function throwBall() {
 
-        console.log( 'An error happened' );
+    const sphere = spheres[ sphereIdx ];
+
+    camera.getWorldDirection( playerDirection );
+
+    sphere.collider.center.copy( playerCollider.end ).addScaledVector( playerDirection, playerCollider.radius * 1.5 );
+
+    // throw the ball with more force if we hold the button longer, and if we move forward
+
+    const impulse = 15 + 30 * ( 1 - Math.exp( ( mouseTime - performance.now() ) * 0.001 ) );
+
+    sphere.velocity.copy( playerDirection ).multiplyScalar( impulse );
+    sphere.velocity.addScaledVector( playerVelocity, 2 );
+
+    sphereIdx = ( sphereIdx + 1 ) % spheres.length;
+
+}
+
+function playerCollisions() {
+
+    const result = worldOctree.capsuleIntersect( playerCollider );
+
+    playerOnFloor = false;
+
+    if ( result ) {
+
+        playerOnFloor = result.normal.y > 0;
+
+        if ( ! playerOnFloor ) {
+
+            playerVelocity.addScaledVector( result.normal, - result.normal.dot( playerVelocity ) );
+
+        }
+
+        playerCollider.translate( result.normal.multiplyScalar( result.depth ) );
 
     }
-);
 
+}
 
-//PLANTS
-//Plant1
-loader.load('plant3/scene.gltf',function ( gltf ) {
-    const plant1 = gltf.scene;
-    plant1.scale.set(0.3,0.3,0.3)
-    plant1.position.set(11,6.9,-19)
-    plant1.rotation.y = -0.2
-    scene.add( plant1 );
-    // gui.add(plant1.position, 'x')
-    // gui.add(plant1.position, 'y')
-    // gui.add(plant1.position, 'z')
-    // gui.add(plant1.scale, 'x')
-    // gui.add(plant1.scale, 'y')
-    // gui.add(plant1.scale, 'z')
-    // gui.add(plant1.rotation, 'y')
-    
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
+function updatePlayer( deltaTime ) {
+
+    let damping = Math.exp( - 4 * deltaTime ) - 1;
+
+    if ( ! playerOnFloor ) {
+
+        playerVelocity.y -= GRAVITY * deltaTime;
+
+        // small air resistance
+        damping *= 0.1;
+
+    }
+
+    playerVelocity.addScaledVector( playerVelocity, damping );
+
+    const deltaPosition = playerVelocity.clone().multiplyScalar( deltaTime );
+    playerCollider.translate( deltaPosition );
+
+    playerCollisions();
+
+    camera.position.copy( playerCollider.end );
+
+}
+
+function playerSphereCollision( sphere ) {
+
+    const center = vector1.addVectors( playerCollider.start, playerCollider.end ).multiplyScalar( 0.5 );
+
+    const sphere_center = sphere.collider.center;
+
+    const r = playerCollider.radius + sphere.collider.radius;
+    const r2 = r * r;
+
+    // approximation: player = 3 spheres
+
+    for ( const point of [ playerCollider.start, playerCollider.end, center ] ) {
+
+        const d2 = point.distanceToSquared( sphere_center );
+
+        if ( d2 < r2 ) {
+
+            const normal = vector1.subVectors( point, sphere_center ).normalize();
+            const v1 = vector2.copy( normal ).multiplyScalar( normal.dot( playerVelocity ) );
+            const v2 = vector3.copy( normal ).multiplyScalar( normal.dot( sphere.velocity ) );
+
+            playerVelocity.add( v2 ).sub( v1 );
+            sphere.velocity.add( v1 ).sub( v2 );
+
+            const d = ( r - Math.sqrt( d2 ) ) / 2;
+            sphere_center.addScaledVector( normal, - d );
+
         }
-    
-    });
-    
+
+    }
+
+}
+
+function spheresCollisions() {
+
+    for ( let i = 0, length = spheres.length; i < length; i ++ ) {
+
+        const s1 = spheres[ i ];
+
+        for ( let j = i + 1; j < length; j ++ ) {
+
+            const s2 = spheres[ j ];
+
+            const d2 = s1.collider.center.distanceToSquared( s2.collider.center );
+            const r = s1.collider.radius + s2.collider.radius;
+            const r2 = r * r;
+
+            if ( d2 < r2 ) {
+
+                const normal = vector1.subVectors( s1.collider.center, s2.collider.center ).normalize();
+                const v1 = vector2.copy( normal ).multiplyScalar( normal.dot( s1.velocity ) );
+                const v2 = vector3.copy( normal ).multiplyScalar( normal.dot( s2.velocity ) );
+
+                s1.velocity.add( v2 ).sub( v1 );
+                s2.velocity.add( v1 ).sub( v2 );
+
+                const d = ( r - Math.sqrt( d2 ) ) / 2;
+
+                s1.collider.center.addScaledVector( normal, d );
+                s2.collider.center.addScaledVector( normal, - d );
+
+            }
+
+        }
+
+    }
+
+}
+
+function updateSpheres( deltaTime ) {
+
+    spheres.forEach( sphere => {
+
+        sphere.collider.center.addScaledVector( sphere.velocity, deltaTime );
+
+        const result = worldOctree.sphereIntersect( sphere.collider );
+
+        if ( result ) {
+
+            sphere.velocity.addScaledVector( result.normal, - result.normal.dot( sphere.velocity ) * 1.5 );
+            sphere.collider.center.add( result.normal.multiplyScalar( result.depth ) );
+
+        } else {
+
+            sphere.velocity.y -= GRAVITY * deltaTime;
+
+        }
+
+        const damping = Math.exp( - 1.5 * deltaTime ) - 1;
+        sphere.velocity.addScaledVector( sphere.velocity, damping );
+
+        playerSphereCollision( sphere );
+
     } );
 
-    loader.load('plant3/scene.gltf',function ( gltf ) {
-        const plant1 = gltf.scene;
-        plant1.scale.set(0.3,0.3,0.3)
-        plant1.position.set(6,6.2,-3)
-        plant1.rotation.y = -0.68
-        scene.add( plant1 );
-        // gui.add(plant1.position, 'x')
-        // gui.add(plant1.position, 'y')
-        // gui.add(plant1.position, 'z')
-        // gui.add(plant1.scale, 'x')
-        // gui.add(plant1.scale, 'y')
-        // gui.add(plant1.scale, 'z')
-        // gui.add(plant1.rotation, 'y')
-        
-        worldOctree.fromGraphNode( gltf.scene );
-        
-        gltf.scene.traverse( child => {
-        
-            if ( child.isMesh ) {
-        
-                child.castShadow = true;
-                child.receiveShadow = true;
-        
-            if ( child.material.map ) {
-        
-                child.material.map.anisotropy = 8;
-        
-                }
-        
-            }
-        
-        });
+    spheresCollisions();
 
-animate();  
+    for ( const sphere of spheres ) {
 
-} );
+        sphere.mesh.position.copy( sphere.collider.center );
 
-loader.load('plant3/scene.gltf',function ( gltf ) {
-    const plant2 = gltf.scene;
-    plant2.scale.set(0.3,0.3,0.3)
-    plant2.position.set(6,6.2,-3)
-    plant2.rotation.y = -0.68
-    scene.add( plant2 );
-    // gui.add(plant2.position, 'x')
-    // gui.add(plant2.position, 'y')
-    // gui.add(plant2.position, 'z')
-    // gui.add(plant2.scale, 'x')
-    // gui.add(plant2.scale, 'y')
-    // gui.add(plant2.scale, 'z')
-    // gui.add(plant2.rotation, 'y')
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
+    }
+
+}
+
+function getForwardVector() {
+
+    camera.getWorldDirection( playerDirection );
+    playerDirection.y = 0;
+    playerDirection.normalize();
+
+    return playerDirection;
+
+}
+
+function getSideVector() {
+
+    camera.getWorldDirection( playerDirection );
+    playerDirection.y = 0;
+    playerDirection.normalize();
+    playerDirection.cross( camera.up );
+
+    return playerDirection;
+
+}
+
+function controls( deltaTime ) {
+
+    // gives a bit of air control
+    const speedDelta = deltaTime * ( playerOnFloor ? 25 : 8 );
+
+    if ( keyStates[ 'KeyW' ] ) {
+
+        playerVelocity.add( getForwardVector().multiplyScalar( speedDelta ) );
+
+    }
+
+    if ( keyStates[ 'KeyS' ] ) {
+
+        playerVelocity.add( getForwardVector().multiplyScalar( - speedDelta ) );
+
+    }
+
+    if ( keyStates[ 'KeyA' ] ) {
+
+        playerVelocity.add( getSideVector().multiplyScalar( - speedDelta ) );
+
+    }
+
+    if ( keyStates[ 'KeyD' ] ) {
+
+        playerVelocity.add( getSideVector().multiplyScalar( speedDelta ) );
+
+    }
+
+    if ( playerOnFloor ) {
+
+        if ( keyStates[ 'Space' ] ) {
+
+            playerVelocity.y = 15;
+
         }
-    
-    });
 
-animate();  
+    }
 
-} );
-
-loader.load('plant3/scene.gltf',function ( gltf ) {
-    const plant3 = gltf.scene;
-    plant3.scale.set(0.3,0.3,0.3)
-    plant3.position.set(-9.5,6.3,-13.5)
-    plant3.rotation.y = -2.97
-    scene.add( plant3 );
-    // gui.add(plant3.position, 'x')
-    // gui.add(plant3.position, 'y')
-    // gui.add(plant3.position, 'z')
-    // gui.add(plant3.scale, 'x')
-    // gui.add(plant3.scale, 'y')
-    // gui.add(plant3.scale, 'z')
-    // gui.add(plant3.rotation, 'y')
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
-        }
-    
-    });
-
-animate();  
-
-} );
-
-loader.load('plant3/scene.gltf',function ( gltf ) {
-    const plant3 = gltf.scene;
-    plant3.scale.set(0.3,0.3,0.3)
-    plant3.position.set(-7,6.3,-3)
-    plant3.rotation.y = -30.5
-    scene.add( plant3 );
-    // gui.add(plant3.position, 'x')
-    // gui.add(plant3.position, 'y')
-    // gui.add(plant3.position, 'z')
-    // gui.add(plant3.scale, 'x')
-    // gui.add(plant3.scale, 'y')
-    // gui.add(plant3.scale, 'z')
-    // gui.add(plant3.rotation, 'y')
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
-        }
-    
-    });
-
-animate();  
-
-} );
-
-loader.load('plant3/scene.gltf',function ( gltf ) {
-    const plant4 = gltf.scene;
-    plant4.scale.set(0.3,0.3,0.3)
-    plant4.position.set(-7,6.3,-3)
-    plant4.rotation.y = -30.5
-    scene.add( plant4 );
-    // gui.add(plant4.position, 'x')
-    // gui.add(plant4.position, 'y')
-    // gui.add(plant4.position, 'z')
-    // gui.add(plant4.scale, 'x')
-    // gui.add(plant4.scale, 'y')
-    // gui.add(plant4.scale, 'z')
-    // gui.add(plant4.rotation, 'y')
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
-        }
-    
-    });
-
-animate();  
-
-} );
-
-
+}
 
 function animate() {
 
