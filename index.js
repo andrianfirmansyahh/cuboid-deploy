@@ -8,6 +8,9 @@ import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js
 import { Octree } from './three.js-master/examples/jsm/math/Octree.js';
 import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
 
+// import domEvents from './three.js-master/examples/js/threex.domevents.js'
+
+
 const clock = new THREE.Clock();
 
 const scene = new THREE.Scene();
@@ -15,6 +18,8 @@ scene.background = new THREE.Color( 0x88ccff );
 
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 camera.rotation.order = 'YXZ';
+
+// const domEvents = new THREEx.DomEvents(camera, renderer.domElement)
 
 const gui = new dat.GUI();
 const animationsFolder = gui.addFolder('Animations')
@@ -1525,6 +1530,14 @@ function ( error ) {
 
     }
 );
+
+// domEvents.addEventListener(cuboid, 'mouseover', event =>{
+//     cuboid.scale.set(1,1,1)
+// })
+
+// domEvents.addEventListener(cuboid, 'mouseout', event =>{
+//     cuboid.scale.set(.5, .5, .5)
+// })
 
 function onWindowResize() {
 
