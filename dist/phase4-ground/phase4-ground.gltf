@@ -1,0 +1,173 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "rock.002",
+            "rotation" : [
+                -0.05643671378493309,
+                -0.9875248670578003,
+                -0.07993918657302856,
+                -0.12336647510528564
+            ],
+            "scale" : [
+                -134.49032592773438,
+                -58.79398727416992,
+                -139.0677032470703
+            ],
+            "translation" : [
+                -6.6703386306762695,
+                -29.784053802490234,
+                -150.37338256835938
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Ground",
+            "normalTexture" : {
+                "index" : 0,
+                "scale" : 1.5999999046325684
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 2
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "rock.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Dirt_Normal",
+            "uri" : "textures/Dirt_Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Dirt_Diff",
+            "uri" : "textures/Dirt_Diff.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Dirt_Rough",
+            "uri" : "textures/Dirt_Rough.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 572,
+            "max" : [
+                0.4349214434623718,
+                0.17183995246887207,
+                0.3807227909564972
+            ],
+            "min" : [
+                -0.30595946311950684,
+                -0.5337809324264526,
+                -0.4481225311756134
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 572,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 572,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 1839,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 6864,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6864,
+            "byteOffset" : 6864
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4576,
+            "byteOffset" : 13728
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3678,
+            "byteOffset" : 18304
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 21984,
+            "uri" : "phase4-ground.bin"
+        }
+    ]
+}
