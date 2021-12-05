@@ -882,7 +882,7 @@ loader.load('phase4-terrace/phase4-terrace.gltf',function ( gltf ) {
     loader.load('chair/chair.gltf',function ( gltf ) {
         const chair4 = gltf.scene;
         chair4.scale.set(1, 1, 1)
-        chair4.position.set(-3.8, 0.4, -147)
+        chair4.position.set(-3.8, 0.4, -146.8)
         chair4.rotation.y = 0.6;
         scene.add( chair4 );
         // gui.add(chair4.position, 'x')
@@ -952,18 +952,54 @@ loader.load('phase4-terrace/phase4-terrace.gltf',function ( gltf ) {
 
     //Chair6
     loader.load('chair/chair.gltf',function ( gltf ) {
-        const chair3 = gltf.scene;
-        chair3.scale.set(1, 1, 1)
-        chair3.position.set(3.8, 0.4, -153)
-        chair3.rotation.y = -0.7;
-        scene.add( chair3 );
-        gui.add(chair3.position, 'x')
-        gui.add(chair3.position, 'y')
-        gui.add(chair3.position, 'z')
-        gui.add(chair3.scale, 'x')
-        gui.add(chair3.scale, 'y')
-        gui.add(chair3.scale, 'z')
-        gui.add(chair3.rotation, 'y')
+        const chair6 = gltf.scene;
+        chair6.scale.set(1, 1, 1)
+        chair6.position.set(-3, 0.22, -174)
+        chair6.rotation.y = -3.74;
+        scene.add( chair6 );
+        // gui.add(chair6.position, 'x')
+        // gui.add(chair6.position, 'y')
+        // gui.add(chair6.position, 'z')
+        // gui.add(chair6.scale, 'x')
+        // gui.add(chair6.scale, 'y')
+        // gui.add(chair6.scale, 'z')
+        // gui.add(chair6.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair7
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair7 = gltf.scene;
+        chair7.scale.set(1, 1, 1)
+        chair7.position.set(3.3, 0.22, -174)
+        chair7.rotation.y = -2.5;
+        scene.add( chair7 );
+        // gui.add(chair7.position, 'x')
+        // gui.add(chair7.position, 'y')
+        // gui.add(chair7.position, 'z')
+        // gui.add(chair7.scale, 'x')
+        // gui.add(chair7.scale, 'y')
+        // gui.add(chair7.scale, 'z')
+        // gui.add(chair7.rotation, 'y')
 
         gltf.animations; // Array<THREE.AnimationClip>
         gltf.scene; // THREE.Group
