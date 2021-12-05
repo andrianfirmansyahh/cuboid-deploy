@@ -4,6 +4,7 @@ import Stats from './three.js-master/examples/jsm/libs/stats.module.js';
 import * as dat from './three.js-master/examples/jsm/libs/dat.gui.module.js'
 
 import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js';
+import { DRACOLoader } from './three.js-master/examples/jsm/loaders/DRACOLoader.js'
 
 import { Octree } from './three.js-master/examples/jsm/math/Octree.js';
 import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
@@ -226,6 +227,11 @@ window.addEventListener( 'resize', onWindowResize );
 
 // DIGITAL SPACES
 const loader = new GLTFLoader(loadingManager);
+
+// Optional: Provide a DRACOLoader instance to decode compressed mesh data
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( '/examples/js/libs/draco/' );
+loader.setDRACOLoader( dracoLoader );
 
 // PHASE 1
 loader.load( 'phasesatu/phasesatu.gltf', ( gltf ) => {
