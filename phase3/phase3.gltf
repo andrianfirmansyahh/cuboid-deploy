@@ -1,0 +1,403 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Cube.004",
+            "scale" : [
+                1.5390318632125854,
+                0.33344340324401855,
+                30.26503562927246
+            ],
+            "translation" : [
+                0.24761462211608887,
+                1.8151216506958008,
+                -107.43892669677734
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "Cube.009",
+            "scale" : [
+                1.9153131246566772,
+                1.9153131246566772,
+                21.94124984741211
+            ],
+            "translation" : [
+                0.26142382621765137,
+                3.584120035171509,
+                -113.40251159667969
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Cube.006",
+            "scale" : [
+                6.965493202209473,
+                0.16316159069538116,
+                6.965493202209473
+            ],
+            "translation" : [
+                0,
+                1.8650739192962646,
+                -108.51942443847656
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Dark procedural tiles.001",
+            "normalTexture" : {
+                "index" : 0,
+                "scale" : 0.20000000298023224
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 1
+                },
+                "metallicFactor" : 0.290909081697464,
+                "roughnessFactor" : 0.8339483737945557
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Old Wall procedural",
+            "normalTexture" : {
+                "index" : 2
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 3
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.7727272510528564
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Ceramic Black Tiles English.001",
+            "normalTexture" : {
+                "index" : 4
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 5
+                },
+                "metallicFactor" : 0,
+                "metallicRoughnessTexture" : {
+                    "index" : 6
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.016",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Cube.004",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Cube",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 1,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        },
+        {
+            "sampler" : 0,
+            "source" : 4
+        },
+        {
+            "sampler" : 0,
+            "source" : 5
+        },
+        {
+            "sampler" : 0,
+            "source" : 6
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Runaway_Normal_Map",
+            "uri" : "textures/Runaway_Normal_Map.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Runaway_Floor",
+            "uri" : "textures/Runaway_Floor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Wall Norm",
+            "uri" : "textures/Wall%20Norm.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Wall Diff",
+            "uri" : "textures/Wall%20Diff.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Floor Normal",
+            "uri" : "textures/Floor%20Normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Floor Diff",
+            "uri" : "textures/Floor%20Diff.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "Floor Rough",
+            "uri" : "textures/Floor%20Rough.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 2242,
+            "max" : [
+                1.0000001192092896,
+                1.0000001192092896,
+                0.7845274806022644
+            ],
+            "min" : [
+                -1.0000001192092896,
+                -1.7330210208892822,
+                -1.0000001192092896
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 2242,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 2242,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 2304,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 282464,
+            "max" : [
+                3.1357924938201904,
+                2.278076410293579,
+                1.4083307981491089
+            ],
+            "min" : [
+                -3.4280097484588623,
+                -1.6470112800598145,
+                -1.0003998279571533
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 282464,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 282464,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5125,
+            "count" : 325554,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 100,
+            "max" : [
+                1,
+                1,
+                3.5973711013793945
+            ],
+            "min" : [
+                -1,
+                -1,
+                -3.3264498710632324
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 100,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 100,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 180,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 26904,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 26904,
+            "byteOffset" : 26904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 17936,
+            "byteOffset" : 53808
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4608,
+            "byteOffset" : 71744
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3389568,
+            "byteOffset" : 76352
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3389568,
+            "byteOffset" : 3465920
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2259712,
+            "byteOffset" : 6855488
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1302216,
+            "byteOffset" : 9115200
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1200,
+            "byteOffset" : 10417416
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1200,
+            "byteOffset" : 10418616
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 800,
+            "byteOffset" : 10419816
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 360,
+            "byteOffset" : 10420616
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        },
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987,
+            "wrapS" : 33071,
+            "wrapT" : 33071
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 10420976,
+            "uri" : "phase3.bin"
+        }
+    ]
+}

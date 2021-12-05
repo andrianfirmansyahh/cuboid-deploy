@@ -150,6 +150,9 @@ const array = [
 const geometry = new THREE.BoxGeometry( 500, 500, 500 );
 const cube = new THREE.Mesh( geometry, array );
 cube.position.set(0,0,-100);
+cube.rotation.y =3.6;
+// gui.add(cube.rotation, 'y')
+
 scene.add( cube );
 
 
@@ -228,7 +231,7 @@ window.addEventListener( 'resize', onWindowResize );
 const loader = new GLTFLoader(loadingManager);
 
 // PHASE 1
-loader.load( 'phasesatu/phasesatu.gltf', ( gltf ) => {
+loader.load( 'phase1/phase1.gltf', ( gltf ) => {
 const phase1 = gltf.scene;
 phase1.scale.set(1,1,1);
 phase1.position.set(0,-2,-26)
@@ -529,6 +532,13 @@ loader.load('phase2/phase2.gltf',function ( gltf ) {
 const phase2 = gltf.scene;
 phase2.scale.set(1,1,1)
 phase2.position.set(0,-2,-26)
+    // gui.add(phase2.position, 'x')
+    // gui.add(phase2.position, 'y')
+    // gui.add(phase2.position, 'z')
+    // gui.add(phase2.scale, 'x')
+    // gui.add(phase2.scale, 'y')
+    // gui.add(phase2.scale, 'z')
+    // gui.add(plant4.rotation, 'y')
 scene.add( phase2 );
 
 
@@ -560,10 +570,16 @@ animate();
 
 
 //Phase3
-loader.load('phase3 Floor/floor.gltf',function ( gltf ) {
+loader.load('phase3/phase3.gltf',function ( gltf ) {
     const phase3 = gltf.scene;
     phase3.scale.set(1,1,1)
     phase3.position.set(0,-2,-26)
+    // gui.add(phase3.position, 'x')
+    // gui.add(phase3.position, 'y')
+    // gui.add(phase3.position, 'z')
+    // gui.add(phase3.scale, 'x')
+    // gui.add(phase3.scale, 'y')
+    // gui.add(phase3.scale, 'z')
     scene.add( phase3 );
     
     
@@ -593,80 +609,18 @@ loader.load('phase3 Floor/floor.gltf',function ( gltf ) {
     
     } );
 
-//Phase3
-loader.load('phase3 Roof/room.gltf',function ( gltf ) {
-    const phase3roof = gltf.scene;
-    phase3roof.scale.set(1,1,1)
-    phase3roof.position.set(0,-2,-26)
-    scene.add( phase3roof );
-    
-    
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
-        }
-    
-    }
-        
-    );
-    
-    animate();
-    
-    } );
-
-//Phase4_Building
-loader.load('phase4/building/building.gltf',function ( gltf ) {
-    const Phase4_Building = gltf.scene;
-    Phase4_Building.scale.set(1,1,1)
-    Phase4_Building.position.set(0,-1.65,-26)
-    scene.add( Phase4_Building );
-    
-    
-    
-    worldOctree.fromGraphNode( gltf.scene );
-    
-    gltf.scene.traverse( child => {
-    
-        if ( child.isMesh ) {
-    
-            child.castShadow = true;
-            child.receiveShadow = true;
-    
-        if ( child.material.map ) {
-    
-            child.material.map.anisotropy = 8;
-    
-            }
-    
-        }
-    
-    }
-        
-    );
-    
-    animate();
-    
-    } );
-
 //Phase4_Ground
-loader.load('phase4/ground/ground.gltf',function ( gltf ) {
-    const Phase4_Ground = gltf.scene;
-    Phase4_Ground.scale.set(1,1,1)
-    Phase4_Ground.position.set(0,-2,-26)
-    scene.add( Phase4_Ground );
+loader.load('phase4-ground/phase4-ground.gltf',function ( gltf ) {
+    const Phase4 = gltf.scene;
+    Phase4.scale.set(1,1,1)
+    Phase4.position.set(0,-1.65,-26)
+    // gui.add(Phase4.position, 'x')
+    // gui.add(Phase4.position, 'y')
+    // gui.add(Phase4.position, 'z')
+    // gui.add(Phase4.scale, 'x')
+    // gui.add(Phase4.scale, 'y')
+    // gui.add(Phase4.scale, 'z')
+    scene.add( Phase4 );
     
     
     
@@ -695,12 +649,18 @@ loader.load('phase4/ground/ground.gltf',function ( gltf ) {
     
     } );
 
-//Phase4_Roof
-loader.load('phase4/roof/roof.gltf',function ( gltf ) {
-    const Phase4_Roof = gltf.scene;
-    Phase4_Roof.scale.set(1,1,1)
-    Phase4_Roof.position.set(0,-2,-26)
-    scene.add( Phase4_Roof );
+//Phase4_roof
+loader.load('phase4-roof/phase4-roof.gltf',function ( gltf ) {
+    const Phase4_roof = gltf.scene;
+    Phase4_roof.scale.set(1,1,1)
+    Phase4_roof.position.set(0,-2,-26)
+    // gui.add(Phase4_roof.position, 'x')
+    // gui.add(Phase4_roof.position, 'y')
+    // gui.add(Phase4_roof.position, 'z')
+    // gui.add(Phase4_roof.scale, 'x')
+    // gui.add(Phase4_roof.scale, 'y')
+    // gui.add(Phase4_roof.scale, 'z')
+    scene.add( Phase4_roof );
     
     
     
@@ -729,12 +689,18 @@ loader.load('phase4/roof/roof.gltf',function ( gltf ) {
     
     } );
 
-//Phase4_Sidewallr1
-loader.load('phase4/sidewalk/sidewalk.gltf',function ( gltf ) {
-    const Phase4_Sidewallr1 = gltf.scene;
-    Phase4_Sidewallr1.scale.set(1,1,1)
-    Phase4_Sidewallr1.position.set(0,-2,-26)
-    scene.add( Phase4_Sidewallr1 );
+//Phase4_Side
+loader.load('phase4-side/phase4-side.gltf',function ( gltf ) {
+    const Phase4_side = gltf.scene;
+    Phase4_side.scale.set(1,1,1)
+    Phase4_side.position.set(0,-2,-27)
+    // gui.add(Phase4_side.position, 'x')
+    // gui.add(Phase4_side.position, 'y')
+    // gui.add(Phase4_side.position, 'z')
+    // gui.add(Phase4_side.scale, 'x')
+    // gui.add(Phase4_side.scale, 'y')
+    // gui.add(Phase4_side.scale, 'z')
+    scene.add( Phase4_side );
     
     
     
@@ -762,6 +728,263 @@ loader.load('phase4/sidewalk/sidewalk.gltf',function ( gltf ) {
     animate();
     
     } );
+
+//Phase4_Terrace
+loader.load('phase4-terrace/phase4-terrace.gltf',function ( gltf ) {
+    const Phase4_terrace = gltf.scene;
+    Phase4_terrace.scale.set(1,1,1)
+    Phase4_terrace.position.set(0,-1.78,-26)
+    // gui.add(Phase4_terrace.position, 'x')
+    // gui.add(Phase4_terrace.position, 'y')
+    // gui.add(Phase4_terrace.position, 'z')
+    // gui.add(Phase4_terrace.scale, 'x')
+    // gui.add(Phase4_terrace.scale, 'y')
+    // gui.add(Phase4_terrace.scale, 'z')
+    scene.add( Phase4_terrace );
+    
+    
+    
+    worldOctree.fromGraphNode( gltf.scene );
+    
+    gltf.scene.traverse( child => {
+    
+        if ( child.isMesh ) {
+    
+            child.castShadow = true;
+            child.receiveShadow = true;
+    
+        if ( child.material.map ) {
+    
+            child.material.map.anisotropy = 8;
+    
+            }
+    
+        }
+    
+    }
+        
+    );
+    
+    animate();
+    
+    } );
+
+    //Chair
+    //Chair1
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair = gltf.scene;
+        chair.scale.set(1, 1, 1)
+        chair.position.set(4.1, 0.4, -128)
+        chair.rotation.y = -0.7;
+        scene.add( chair );
+        // gui.add(chair.position, 'x')
+        // gui.add(chair.position, 'y')
+        // gui.add(chair.position, 'z')
+        // gui.add(chair.scale, 'x')
+        // gui.add(chair.scale, 'y')
+        // gui.add(chair.scale, 'z')
+        // gui.add(chair.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair2
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair2 = gltf.scene;
+        chair2.scale.set(1, 1, 1)
+        chair2.position.set(4.1, 0.4, -140)
+        chair2.rotation.y = -0.7;
+        scene.add( chair2 );
+        // gui.add(chair2.position, 'x')
+        // gui.add(chair2.position, 'y')
+        // gui.add(chair2.position, 'z')
+        // gui.add(chair2.scale, 'x')
+        // gui.add(chair2.scale, 'y')
+        // gui.add(chair2.scale, 'z')
+        // gui.add(chair2.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair3
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair3 = gltf.scene;
+        chair3.scale.set(1, 1, 1)
+        chair3.position.set(3.8, 0.4, -153)
+        chair3.rotation.y = -0.7;
+        scene.add( chair3 );
+        // gui.add(chair3.position, 'x')
+        // gui.add(chair3.position, 'y')
+        // gui.add(chair3.position, 'z')
+        // gui.add(chair3.scale, 'x')
+        // gui.add(chair3.scale, 'y')
+        // gui.add(chair3.scale, 'z')
+        // gui.add(chair3.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair4
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair4 = gltf.scene;
+        chair4.scale.set(1, 1, 1)
+        chair4.position.set(-3.8, 0.4, -147)
+        chair4.rotation.y = 0.6;
+        scene.add( chair4 );
+        // gui.add(chair4.position, 'x')
+        // gui.add(chair4.position, 'y')
+        // gui.add(chair4.position, 'z')
+        // gui.add(chair4.scale, 'x')
+        // gui.add(chair4.scale, 'y')
+        // gui.add(chair4.scale, 'z')
+        // gui.add(chair4.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair5
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair5 = gltf.scene;
+        chair5.scale.set(1, 1, 1)
+        chair5.position.set(-4.2, 0.4, -134)
+        chair5.rotation.y = 0.6;
+        scene.add( chair5 );
+        // gui.add(chair5.position, 'x')
+        // gui.add(chair5.position, 'y')
+        // gui.add(chair5.position, 'z')
+        // gui.add(chair5.scale, 'x')
+        // gui.add(chair5.scale, 'y')
+        // gui.add(chair5.scale, 'z')
+        // gui.add(chair5.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Chair6
+    loader.load('chair/chair.gltf',function ( gltf ) {
+        const chair3 = gltf.scene;
+        chair3.scale.set(1, 1, 1)
+        chair3.position.set(3.8, 0.4, -153)
+        chair3.rotation.y = -0.7;
+        scene.add( chair3 );
+        gui.add(chair3.position, 'x')
+        gui.add(chair3.position, 'y')
+        gui.add(chair3.position, 'z')
+        gui.add(chair3.scale, 'x')
+        gui.add(chair3.scale, 'y')
+        gui.add(chair3.scale, 'z')
+        gui.add(chair3.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
 
     //OBJECT
     //clothes
@@ -1510,7 +1733,7 @@ function controls( deltaTime ) {
 
 function teleportPlayerIfOob(){
     if (camera.position.y <= -25){
-        playerCollider.start.set( 0, 0.35, 0 );
+        playerCollider.start.set( 0, 0.5, 0 );
         playerCollider.end.set( 0, 1, 0 );
         playerCollider.radius =  0.35;
         camera.position.copy( playerCollider.end );
