@@ -1,0 +1,132 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "BezierCurve.001",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.8262351751327515,
+                1,
+                1
+            ],
+            "translation" : [
+                -1.4157798290252686,
+                -0.48389101028442383,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Chrome Black",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.02431500516831875,
+                    0.01810857281088829,
+                    0.00972398929297924,
+                    1
+                ],
+                "roughnessFactor" : 0.029545456171035767
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "BezierCurve.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 35259,
+            "max" : [
+                3.9815099239349365,
+                0.8603076934814453,
+                0.29140597581863403
+            ],
+            "min" : [
+                -0.5412580370903015,
+                -0.8204657435417175,
+                -1.6691374778747559
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 35259,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 35259,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 208080,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 423108,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 423108,
+            "byteOffset" : 423108
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 282072,
+            "byteOffset" : 846216
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 416160,
+            "byteOffset" : 1128288
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1544448,
+            "uri" : "line.bin"
+        }
+    ]
+}
