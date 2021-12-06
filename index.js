@@ -14,12 +14,20 @@ const clock = new THREE.Clock();
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0x88ccff );
 
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 1000 );
+// camera.position.set(0,15,0);
 camera.rotation.order = 'YXZ';
+camera.rotation.x = 0.7;
 
-// const gui = new dat.GUI();
-// const animationsFolder = gui.addFolder('Animations')
-// animationsFolder.open()
+
+const gui = new dat.GUI();
+const animationsFolder = gui.addFolder('Animations')
+animationsFolder.open()
+
+// gui.add(camera.position, 'x')
+// gui.add(camera.position, 'y')
+// gui.add(camera.position, 'z')
+// gui.add(camera.rotation, 'x')
 
 const GRAVITY = 30;
 
@@ -769,6 +777,44 @@ loader.load('phase4-terrace/phase4-terrace.gltf',function ( gltf ) {
     animate();
     
     } );
+
+    //Title
+    //text
+    loader.load('text/line/line.gltf',function ( gltf ) {
+        const line = gltf.scene;
+        line.scale.set(1, 1, 1)
+        line.position.set(0,0,0)
+        line.rotation.y = 0;
+        scene.add( line );
+        gui.add(line.position, 'x')
+        gui.add(line.position, 'y')
+        gui.add(line.position, 'z')
+        gui.add(line.scale, 'x')
+        gui.add(line.scale, 'y')
+        gui.add(line.scale, 'z')
+        gui.add(line.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
 
     //Chair
     //Chair1
