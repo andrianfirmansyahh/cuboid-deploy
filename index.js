@@ -11,23 +11,17 @@ import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
 
 const clock = new THREE.Clock();
 
-const scene = new THREE.Scene();
-scene.background = new THREE.Color( 0x88ccff );
-
-const camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 0.1, 1000 );
-// camera.position.set(0,15,0);
-camera.rotation.order = 'YXZ';
-camera.rotation.x = 0.7;
-
-
 const gui = new dat.GUI();
 const animationsFolder = gui.addFolder('Animations')
 animationsFolder.open()
 
-// gui.add(camera.position, 'x')
-// gui.add(camera.position, 'y')
-// gui.add(camera.position, 'z')
-// gui.add(camera.rotation, 'x')
+const scene = new THREE.Scene();
+scene.background = new THREE.Color( 0x88ccff );
+
+const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+camera.rotation.order = 'YXZ';
+camera.rotation.x = 0.7;
+gui.add(camera.rotation, 'x')
 
 const GRAVITY = 30;
 
@@ -243,11 +237,11 @@ const loader = new GLTFLoader(loadingManager);
 loader.load( 'phase1/phase1.gltf', ( gltf ) => {
 const phase1 = gltf.scene;
 phase1.scale.set(1,1,1);
-phase1.position.set(0,-2,-26)
+phase1.position.set(0, -7.5,-28)
 scene.add( phase1 );
-// gui.add(phase1.position, 'x')
-// gui.add(phase1.position, 'y')
-// gui.add(phase1.position, 'z')
+gui.add(phase1.position, 'x')
+gui.add(phase1.position, 'y')
+gui.add(phase1.position, 'z')
 
 
 worldOctree.fromGraphNode( gltf.scene );
@@ -786,13 +780,198 @@ loader.load('phase4-terrace/phase4-terrace.gltf',function ( gltf ) {
         line.position.set(0,0,0)
         line.rotation.y = 0;
         scene.add( line );
-        gui.add(line.position, 'x')
-        gui.add(line.position, 'y')
-        gui.add(line.position, 'z')
-        gui.add(line.scale, 'x')
-        gui.add(line.scale, 'y')
-        gui.add(line.scale, 'z')
-        gui.add(line.rotation, 'y')
+        // gui.add(line.position, 'x')
+        // gui.add(line.position, 'y')
+        // gui.add(line.position, 'z')
+        // gui.add(line.scale, 'x')
+        // gui.add(line.scale, 'y')
+        // gui.add(line.scale, 'z')
+        // gui.add(line.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Title
+    //text
+    loader.load('text/c/c.gltf',function ( gltf ) {
+        const line2 = gltf.scene;
+        line2.scale.set(2, 2, 2)
+        line2.position.set(0,10,-16)
+        line2.rotation.y = 0;
+        scene.add( line2 );
+        // gui.add(line2.position, 'x')
+        // gui.add(line2.position, 'y')
+        // gui.add(line2.position, 'z')
+        // gui.add(line2.scale, 'x')
+        // gui.add(line2.scale, 'y')
+        // gui.add(line2.scale, 'z')
+        // gui.add(line2.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Title
+    //text
+    loader.load('text/u/u.gltf',function ( gltf ) {
+        const line3 = gltf.scene;
+        line3.scale.set(1, 1, 1)
+        line3.position.set(0,0,0)
+        line3.rotation.y = 0;
+        scene.add( line3 );
+        // gui.add(line3.position, 'x')
+        // gui.add(line3.position, 'y')
+        // gui.add(line3.position, 'z')
+        // gui.add(line3.scale, 'x')
+        // gui.add(line3.scale, 'y')
+        // gui.add(line3.scale, 'z')
+        // gui.add(line3.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Title
+    //text
+    loader.load('text/b/b.gltf',function ( gltf ) {
+        const line4 = gltf.scene;
+        line4.scale.set(1, 1, 1)
+        line4.position.set(0,0,0)
+        line4.rotation.y = 0;
+        scene.add( line4 );
+        // gui.add(line4.position, 'x')
+        // gui.add(line4.position, 'y')
+        // gui.add(line4.position, 'z')
+        // gui.add(line4.scale, 'x')
+        // gui.add(line4.scale, 'y')
+        // gui.add(line4.scale, 'z')
+        // gui.add(line4.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Title
+    //text
+    loader.load('text/o/o.gltf',function ( gltf ) {
+        const line5 = gltf.scene;
+        line5.scale.set(1, 1, 1)
+        line5.position.set(0,0,0)
+        line5.rotation.y = 0;
+        scene.add( line5 );
+        // gui.add(line5.position, 'x')
+        // gui.add(line5.position, 'y')
+        // gui.add(line5.position, 'z')
+        // gui.add(line5.scale, 'x')
+        // gui.add(line5.scale, 'y')
+        // gui.add(line5.scale, 'z')
+        // gui.add(line5.rotation, 'y')
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+    },
+
+    // called while loading is progressing
+    function ( xhr ) {
+
+        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+    },
+    // called when loading has errors
+    function ( error ) {
+
+        console.log( 'An error happened' );
+
+    }
+);
+
+    //Title
+    //text
+    loader.load('text/d/d.gltf',function ( gltf ) {
+        const line6 = gltf.scene;
+        line6.scale.set(1, 1, 1)
+        line6.position.set(0,0,0)
+        line6.rotation.y = 0;
+        scene.add( line6 );
+        // gui.add(line6.position, 'x')
+        // gui.add(line6.position, 'y')
+        // gui.add(line6.position, 'z')
+        // gui.add(line6.scale, 'x')
+        // gui.add(line6.scale, 'y')
+        // gui.add(line6.scale, 'z')
+        // gui.add(line6.rotation, 'y')
 
         gltf.animations; // Array<THREE.AnimationClip>
         gltf.scene; // THREE.Group
