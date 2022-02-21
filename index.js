@@ -97,10 +97,10 @@ light1.intensity = 2;
 
 scene.add( light1 );
 
-// gui.add(light1.position, 'x')
-// gui.add(light1.position, 'y')
-// gui.add(light1.position, 'z')
-// gui.add(light1, 'intensity')
+gui.add(light1.position, 'x')
+gui.add(light1.position, 'y')
+gui.add(light1.position, 'z')
+gui.add(light1, 'intensity')
 
 const pointLightHelper1 = new THREE.PointLightHelper(light1, 2);
 scene.add(pointLightHelper1)
@@ -112,10 +112,10 @@ light2.intensity = 3;
     
 scene.add( light2 );
 
-// gui.add(light2.position, 'x')
-// gui.add(light2.position, 'y')
-// gui.add(light2.position, 'z')
-// gui.add(light2, 'intensity')
+gui.add(light2.position, 'x')
+gui.add(light2.position, 'y')
+gui.add(light2.position, 'z')
+gui.add(light2, 'intensity')
 
 const pointLightHelper2 = new THREE.PointLightHelper(light2, 2);
 scene.add(pointLightHelper2)
