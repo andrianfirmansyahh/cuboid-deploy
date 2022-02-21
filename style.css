@@ -28,7 +28,8 @@ body
 	height: 100%;
 	background-color: #000000;
 	opacity: 1;
- 	transition: 1s opacity;
+ 	transition: 0.1s opacity;
+    opacity: 20;
 }
 
 #loading-screen.fade-out {
