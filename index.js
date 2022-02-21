@@ -10,6 +10,8 @@ import { Capsule } from './three.js-master/examples/jsm/math/Capsule.js';
 
 import { MapControls } from './three.js-master/examples/jsm/controls/OrbitControls.js';
 
+// import { TrackballControls } from './three.js-master/examples/jsm/controls/TrackballControls.js';
+
 let controls1
 
 const clock = new THREE.Clock();
@@ -39,17 +41,17 @@ const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0x888855, roughn
 const spheres = [];
 let sphereIdx = 0;
 
-for ( let i = 0; i < NUM_SPHERES; i ++ ) {
+// for ( let i = 0; i < NUM_SPHERES; i ++ ) {
 
-    const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
-    sphere.castShadow = true;
-    sphere.receiveShadow = true;
+//     const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+//     sphere.castShadow = true;
+//     sphere.receiveShadow = true;
 
-    scene.add( sphere );
+//     scene.add( sphere );
 
-    spheres.push( { mesh: sphere, collider: new THREE.Sphere( new THREE.Vector3( 0, - 100, 0 ), SPHERE_RADIUS ), velocity: new THREE.Vector3() } );
+//     spheres.push( { mesh: sphere, collider: new THREE.Sphere( new THREE.Vector3( 0, - 100, 0 ), SPHERE_RADIUS ), velocity: new THREE.Vector3() } );
 
-}
+// }
 
 const loadingManager = new THREE.LoadingManager( () => {
 	
@@ -179,6 +181,15 @@ const vector2 = new THREE.Vector3();
 const vector3 = new THREE.Vector3();
 
 // controls
+
+// const controls = new TrackballControls( camera, renderer.domElement );
+// controls1.rotateSpeed = 1.0;
+// controls1.zoomSpeed = 1.2;
+// controls1.panSpeed = 0.8;
+// controls1.noZoom = false;
+// controls1.noPan = false;
+// controls1.staticMoving = true;
+// controls1.dynamicDampingFactor = 0.3;
 
 controls1 = new MapControls( camera, renderer.domElement );
 
@@ -539,20 +550,21 @@ animate();
 } );
 
     //Title
+
     //text
-    loader.load('text/line/line.gltf',function ( gltf ) {
+    loader.load('teks1/teks1.gltf',function ( gltf ) {
         const line = gltf.scene;
         line.scale.set(4, 4, 4)
-        line.position.set(0, 14,-16)
+        line.position.set(0, 18, -24)
         line.rotation.y = 0;
         scene.add( line );
-        // gui.add(line.position, 'x')
-        // gui.add(line.position, 'y')
-        // gui.add(line.position, 'z')
-        // gui.add(line.scale, 'x')
-        // gui.add(line.scale, 'y')
-        // gui.add(line.scale, 'z')
-        // gui.add(line.rotation, 'y')
+        gui.add(line.position, 'x')
+        gui.add(line.position, 'y')
+        gui.add(line.position, 'z')
+        gui.add(line.scale, 'x')
+        gui.add(line.scale, 'y')
+        gui.add(line.scale, 'z')
+        gui.add(line.rotation, 'y')
 
         gltf.animations; // Array<THREE.AnimationClip>
         gltf.scene; // THREE.Group
@@ -575,190 +587,226 @@ animate();
     }
 );
 
-    //Title
-    //text
-    loader.load('text/c/c.gltf',function ( gltf ) {
-        const line2 = gltf.scene;
-        line2.scale.set(4, 4, 4)
-        line2.position.set(0, 14,-16)
-        line2.rotation.y = 0;
-        scene.add( line2 );
-        // gui.add(line2.position, 'x')
-        // gui.add(line2.position, 'y')
-        // gui.add(line2.position, 'z')
-        // gui.add(line2.scale, 'x')
-        // gui.add(line2.scale, 'y')
-        // gui.add(line2.scale, 'z')
-        // gui.add(line2.rotation, 'y')
+//     //text
+//     loader.load('text/line/line.gltf',function ( gltf ) {
+//         const line = gltf.scene;
+//         line.scale.set(4, 4, 4)
+//         line.position.set(0, 14,-16)
+//         line.rotation.y = 0;
+//         scene.add( line );
+//         // gui.add(line.position, 'x')
+//         // gui.add(line.position, 'y')
+//         // gui.add(line.position, 'z')
+//         // gui.add(line.scale, 'x')
+//         // gui.add(line.scale, 'y')
+//         // gui.add(line.scale, 'z')
+//         // gui.add(line.rotation, 'y')
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
 
-    // called while loading is progressing
-    function ( xhr ) {
+//     // called while loading is progressing
+//     function ( xhr ) {
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-    },
-    // called when loading has errors
-    function ( error ) {
+//     },
+//     // called when loading has errors
+//     function ( error ) {
 
-        console.log( 'An error happened' );
+//         console.log( 'An error happened' );
 
-    }
-);
+//     }
+// );
 
-    //Title
-    //text
-    loader.load('text/u/u.gltf',function ( gltf ) {
-        const line3 = gltf.scene;
-        line3.scale.set(4, 4, 4)
-        line3.position.set(0, 14,-16)
-        line3.rotation.y = 0;
-        scene.add( line3 );
-        // gui.add(line3.position, 'x')
-        // gui.add(line3.position, 'y')
-        // gui.add(line3.position, 'z')
-        // gui.add(line3.scale, 'x')
-        // gui.add(line3.scale, 'y')
-        // gui.add(line3.scale, 'z')
-        // gui.add(line3.rotation, 'y')
+//     //Title
+//     //text
+//     loader.load('text/c/c.gltf',function ( gltf ) {
+//         const line2 = gltf.scene;
+//         line2.scale.set(4, 4, 4)
+//         line2.position.set(0, 14,-16)
+//         line2.rotation.y = 0;
+//         scene.add( line2 );
+//         // gui.add(line2.position, 'x')
+//         // gui.add(line2.position, 'y')
+//         // gui.add(line2.position, 'z')
+//         // gui.add(line2.scale, 'x')
+//         // gui.add(line2.scale, 'y')
+//         // gui.add(line2.scale, 'z')
+//         // gui.add(line2.rotation, 'y')
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
 
-    // called while loading is progressing
-    function ( xhr ) {
+//     // called while loading is progressing
+//     function ( xhr ) {
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-    },
-    // called when loading has errors
-    function ( error ) {
+//     },
+//     // called when loading has errors
+//     function ( error ) {
 
-        console.log( 'An error happened' );
+//         console.log( 'An error happened' );
 
-    }
-);
+//     }
+// );
 
-    //Title
-    //text
-    loader.load('text/b/b.gltf',function ( gltf ) {
-        const line4 = gltf.scene;
-        line4.scale.set(4, 4, 4)
-        line4.position.set(0, 14,-16)
-        line4.rotation.y = 0;
-        scene.add( line4 );
-        // gui.add(line4.position, 'x')
-        // gui.add(line4.position, 'y')
-        // gui.add(line4.position, 'z')
-        // gui.add(line4.scale, 'x')
-        // gui.add(line4.scale, 'y')
-        // gui.add(line4.scale, 'z')
-        // gui.add(line4.rotation, 'y')
+//     //Title
+//     //text
+//     loader.load('text/u/u.gltf',function ( gltf ) {
+//         const line3 = gltf.scene;
+//         line3.scale.set(4, 4, 4)
+//         line3.position.set(0, 14,-16)
+//         line3.rotation.y = 0;
+//         scene.add( line3 );
+//         // gui.add(line3.position, 'x')
+//         // gui.add(line3.position, 'y')
+//         // gui.add(line3.position, 'z')
+//         // gui.add(line3.scale, 'x')
+//         // gui.add(line3.scale, 'y')
+//         // gui.add(line3.scale, 'z')
+//         // gui.add(line3.rotation, 'y')
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
 
-    // called while loading is progressing
-    function ( xhr ) {
+//     // called while loading is progressing
+//     function ( xhr ) {
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-    },
-    // called when loading has errors
-    function ( error ) {
+//     },
+//     // called when loading has errors
+//     function ( error ) {
 
-        console.log( 'An error happened' );
+//         console.log( 'An error happened' );
 
-    }
-);
+//     }
+// );
 
-    //Title
-    //text
-    loader.load('text/o/o.gltf',function ( gltf ) {
-        const line5 = gltf.scene;
-        line5.scale.set(4, 4, 4)
-        line5.position.set(0, 14,-16)
-        line5.rotation.y = 0;
-        scene.add( line5 );
-        // gui.add(line5.position, 'x')
-        // gui.add(line5.position, 'y')
-        // gui.add(line5.position, 'z')
-        // gui.add(line5.scale, 'x')
-        // gui.add(line5.scale, 'y')
-        // gui.add(line5.scale, 'z')
-        // gui.add(line5.rotation, 'y')
+//     //Title
+//     //text
+//     loader.load('text/b/b.gltf',function ( gltf ) {
+//         const line4 = gltf.scene;
+//         line4.scale.set(4, 4, 4)
+//         line4.position.set(0, 14,-16)
+//         line4.rotation.y = 0;
+//         scene.add( line4 );
+//         // gui.add(line4.position, 'x')
+//         // gui.add(line4.position, 'y')
+//         // gui.add(line4.position, 'z')
+//         // gui.add(line4.scale, 'x')
+//         // gui.add(line4.scale, 'y')
+//         // gui.add(line4.scale, 'z')
+//         // gui.add(line4.rotation, 'y')
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
 
-    // called while loading is progressing
-    function ( xhr ) {
+//     // called while loading is progressing
+//     function ( xhr ) {
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-    },
-    // called when loading has errors
-    function ( error ) {
+//     },
+//     // called when loading has errors
+//     function ( error ) {
 
-        console.log( 'An error happened' );
+//         console.log( 'An error happened' );
 
-    }
-);
+//     }
+// );
 
-    //Title
-    //text
-    loader.load('text/d/d.gltf',function ( gltf ) {
-        const line6 = gltf.scene;
-        line6.scale.set(4, 4, 4)
-        line6.position.set(0, 14,-16)
-        line6.rotation.y = 0;
-        scene.add( line6 );
-        // gui.add(line6.position, 'x')
-        // gui.add(line6.position, 'y')
-        // gui.add(line6.position, 'z')
-        // gui.add(line6.scale, 'x')
-        // gui.add(line6.scale, 'y')
-        // gui.add(line6.scale, 'z')
-        // gui.add(line6.rotation, 'y')
+//     //Title
+//     //text
+//     loader.load('text/o/o.gltf',function ( gltf ) {
+//         const line5 = gltf.scene;
+//         line5.scale.set(4, 4, 4)
+//         line5.position.set(0, 14,-16)
+//         line5.rotation.y = 0;
+//         scene.add( line5 );
+//         // gui.add(line5.position, 'x')
+//         // gui.add(line5.position, 'y')
+//         // gui.add(line5.position, 'z')
+//         // gui.add(line5.scale, 'x')
+//         // gui.add(line5.scale, 'y')
+//         // gui.add(line5.scale, 'z')
+//         // gui.add(line5.rotation, 'y')
 
-        gltf.animations; // Array<THREE.AnimationClip>
-        gltf.scene; // THREE.Group
-        gltf.scenes; // Array<THREE.Group>
-        gltf.cameras; // Array<THREE.Camera>
-        gltf.asset; // Object
-    },
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
 
-    // called while loading is progressing
-    function ( xhr ) {
+//     // called while loading is progressing
+//     function ( xhr ) {
 
-        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-    },
-    // called when loading has errors
-    function ( error ) {
+//     },
+//     // called when loading has errors
+//     function ( error ) {
 
-        console.log( 'An error happened' );
+//         console.log( 'An error happened' );
 
-    }
-);
+//     }
+// );
+
+//     //Title
+//     //text
+//     loader.load('text/d/d.gltf',function ( gltf ) {
+//         const line6 = gltf.scene;
+//         line6.scale.set(4, 4, 4)
+//         line6.position.set(0, 14,-16)
+//         line6.rotation.y = 0;
+//         scene.add( line6 );
+//         // gui.add(line6.position, 'x')
+//         // gui.add(line6.position, 'y')
+//         // gui.add(line6.position, 'z')
+//         // gui.add(line6.scale, 'x')
+//         // gui.add(line6.scale, 'y')
+//         // gui.add(line6.scale, 'z')
+//         // gui.add(line6.rotation, 'y')
+
+//         gltf.animations; // Array<THREE.AnimationClip>
+//         gltf.scene; // THREE.Group
+//         gltf.scenes; // Array<THREE.Group>
+//         gltf.cameras; // Array<THREE.Camera>
+//         gltf.asset; // Object
+//     },
+
+//     // called while loading is progressing
+//     function ( xhr ) {
+
+//         console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
+//     },
+//     // called when loading has errors
+//     function ( error ) {
+
+//         console.log( 'An error happened' );
+
+//     }
+// );
 
 function onWindowResize() {
 
@@ -898,7 +946,7 @@ function animate() {
     for ( let i = 0; i < STEPS_PER_FRAME; i ++ ) {
 
         controls( deltaTime );
-        controls1;
+        // controls1();
   
         // only required if controls.enableDamping = true, or if controls.autoRotate = true
         
